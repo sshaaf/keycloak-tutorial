@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Keycloak workshop</title>
+    <link rel="canonical" href="https://redhat-scholars.github.io/course-template/template-tutorial/usergroups.html">
+    <link rel="prev" href="openidconnect.html">
+    <link rel="next" href="identityproviders.html">
+    <meta name="generator" content="Antora 3.0.0">
+    <link rel="stylesheet" href="../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://developers.redhat.com" target="_blank"><img src="../_/img/NewRHDFullLogo_4-color_white-wordmark.png" height="40px" alt="Red Hat Developer Program"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="https://redhat-scholars.github.io/course-template">Keycloak workshop</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://developers.redhat.com/ebooks/" target="_blank">Books</a>
+        <a class="navbar-item" href="https://developers.redhat.com/cheatsheets/" target="_blank">Cheat Sheets</a>
+        <a class="navbar-item" href="https://developers.redhat.com/events/" target="_blank">Upcoming Events</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">More Tutorials</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/kubernetes-tutorial/" target="_blank">Kubernetes</a>
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/istio-tutorial/" target="_blank">Istio</a>
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/quarkus-tutorial/" target="_blank">Quarkus</a>
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/knative-tutorial/" target="_blank">Knative</a>
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/tekton-tutorial/" target="_blank">Tekton</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="template-tutorial" data-version="master">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html"></a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="preface.html">Overview</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="preface.html#What-is-keycloak">What is Keycloak</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="settingup.html">Setup</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="settingup.html#prerequisite">Prerequisites</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="keycloak.html#RH-SSO">Red Hat Single Sign-On</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="configuration.html">Server Setup</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="firstapp.html">Secure your first app</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="openidconnect.html">Open ID Connect</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="usergroups.html">Users and groups</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="identityproviders.html">Identity providers</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="advanceconfig.html">More customization</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="conclusion.html">You made it!</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Keyckoak workshop - Getting started</a></li>
+    <li><a href="usergroups.html">Users and groups</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/sshaaf/keycloak-workshop/edit/master/documentation/modules/ROOT/pages/usergroups.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<div class="paragraph">
+<p>You can manage users and groups in Red Hat SSO, and also import from different feredration providers e.g. LDAP and Kerberos. In this lab we only use the User, groups function provided with Red Hat SSO, and wont be importing from LDAP or Kerberos. However bear in mind that most of the customers would have an internal directory server where the users are stored. And Red Hat SSO can easily connect with them.</p>
+</div>
+<div class="paragraph">
+<p>{{ OCP_URL }}</p>
+</div>
+<div class="paragraph">
+<p>Red Hat SSO has supports for both roles and groups.</p>
+</div>
+<div class="paragraph">
+<p>Roles can be added realm-wide or to specific applications. There is also support for composite roles where a role can be a composite of other roles. This allows for instance creating a default role that can be added to all users, but in turn easily managing what roles all the users with the default role will have.</p>
+</div>
+<div class="paragraph">
+<p>Groups have a parent/child relationship where a child inherits from its parent. Groups can be mapped to roles, have attributes or just added directly to the token for your application to resolve its meaning.</p>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s start by creating a role and see it in the token.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Open the Red Hat SSO Admin Console.</p>
+</li>
+<li>
+<p>Click on Roles and Add Role.</p>
+</li>
+<li>
+<p>Set the Role Name to User and click `Save.</p>
+</li>
+<li>
+<p>Now click on Users and find the user you want to login with. (This should not be the admin user)</p>
+</li>
+<li>
+<p>Click on Role Mappings. Select user from Available roles and click Add selected.</p>
+</li>
+<li>
+<p>Go back to the JS Console and click Refresh, then Access Token JSON.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">  "realm_access": {
+    "roles": [
+      "User",
+      "offline_access",
+      "uma_authorization"
+    ]
+  }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Refresh your js-console and notice that there is a <code>realm_access</code> claim in the token that now contains the user role.</p>
+</div>
+<div class="paragraph">
+<p>Next let&#8217;s create a Group.</p>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Go back to the Red Hat SSO Admin Console.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Click on New and use mygroup as the Name.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Click on Attributes and add key <code>user_type</code> with value consumers.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Now let&#8217;s make sure this group and the claim is added to the token.</p>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Go to Client Scopes and click Create.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>For the name use <code>myscope</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Click on Mappers.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Click on Create.
+<div class="ulist">
+<ul>
+<li>
+<p>Fill in the following values:</p>
+<div class="literalblock">
+<div class="content">
+<pre>Name: `groups`
+Mapper Type: `Group Membership`
+Token Claim Name: `groups`</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Click Save then go back to Mappers and click Create again.</p>
+</li>
+<li>
+<p>Fill in the following values:</p>
+<div class="literalblock">
+<div class="content">
+<pre>Name: type
+Mapper Type: `User Attribute`
+User Attribute: `user_type`
+Token Claim Name: `user_type`
+Claim JSON Type: `String`</pre>
+</div>
+</div>
+</li>
+</ul>
+</div></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Find the js-console client again and add the myclaim as a default client scope.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>Finally add a user to this group, by going to the <code>Users</code>;</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="7"></i><b>7</b></td>
+<td>Find your user and add group to it.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="8"></i><b>8</b></td>
+<td>When you login to the JS Console you will be able to see the claim.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="9"></i><b>9</b></td>
+<td>Go back to the JS Console and click Refresh, then Access Token JSON. Notice that there is a groups claim in the token as well as a user_type claim.</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">  "scope": "openid avatar myscope profile email",
+  "user_type": "consumers",
+  "Group Membership": [
+    "/mygroup"
+  ]</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_user_federation"><a class="anchor" href="#_user_federation"></a>User Federation</h3>
+<div class="paragraph">
+<p>Red Hat Single Sign-On can federate external user databases. Out of the box we have support for LDAP and Active Directory.</p>
+</div>
+<div class="paragraph">
+<p>Red Hat Single Sign-On performs federation a bit differently than other products/projects. The vision of Red Hat Single Sign-On is that it is an out of the box solution that should provide a core set of features regardless of the backend user storage you want to use. Because of this requirement/vision, Red Hat Single Sign-On has a set data model that all of its services use. Most of the time when you want to federate an external user store, much of the metadata that would be needed to provide this complete feature set does not exist in that external store. For example your LDAP server may only provide password validation, but not support TOTP or user role mappings. The Red Hat Single Sign-On User Federation SPI was written to support these completely variable configurations.</p>
+</div>
+<div class="paragraph">
+<p>The way user federation works is that Red Hat Single Sign-On will import your federated users on demand to its local storage. How much metadata is imported depends on the underlying federation plugin and how that plugin is configured. Some federation plugins may only import the username into Red Hat Single Sign-On storage. Others might import everything from name, address, and phone number, to user role mappings. Some plugins might want to import credentials directly into Red Hat Single Sign-On storage and let Red Hat Single Sign-On handle credential validation. Others might want to handle credential validation themselves. The goal of the User Storage Federation SPI is to support all of these scenarios.</p>
+</div>
+<div class="paragraph">
+<p>Lets move on to the next section and see how User federation works together with thirdpart identity providers.</p>
+</div>
+<div class="paragraph">
+<p>Congratulations!
+You have just had the initial glimpses of the User management within Red Hat SS0
+We have created a user, added scope and mappers and added them to a group.
+We have added claims both via user and via groups.</p>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="openidconnect.html">Open ID Connect</a></span>
+  <span class="next"><a href="identityproviders.html">Identity providers</a></span>
+</nav>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <a class="rhd-logo" href="https://developers.redhat.com" target="_blank"></div>
+</footer>
+<script src="../_/js/vendor/clipboard.js"></script>
+<script src="../_/js/site.js"></script>
+<script async src="../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Keycloak workshop</title>
+    <link rel="canonical" href="https://redhat-scholars.github.io/course-template/template-tutorial/configuration.html">
+    <link rel="prev" href="keycloak.html#RH-SSO">
+    <link rel="next" href="firstapp.html">
+    <meta name="generator" content="Antora 3.0.0">
+    <link rel="stylesheet" href="../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://developers.redhat.com" target="_blank"><img src="../_/img/NewRHDFullLogo_4-color_white-wordmark.png" height="40px" alt="Red Hat Developer Program"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="https://redhat-scholars.github.io/course-template">Keycloak workshop</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://developers.redhat.com/ebooks/" target="_blank">Books</a>
+        <a class="navbar-item" href="https://developers.redhat.com/cheatsheets/" target="_blank">Cheat Sheets</a>
+        <a class="navbar-item" href="https://developers.redhat.com/events/" target="_blank">Upcoming Events</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">More Tutorials</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/kubernetes-tutorial/" target="_blank">Kubernetes</a>
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/istio-tutorial/" target="_blank">Istio</a>
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/quarkus-tutorial/" target="_blank">Quarkus</a>
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/knative-tutorial/" target="_blank">Knative</a>
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/tekton-tutorial/" target="_blank">Tekton</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="template-tutorial" data-version="master">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html"></a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="preface.html">Overview</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="preface.html#What-is-keycloak">What is Keycloak</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="settingup.html">Setup</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="settingup.html#prerequisite">Prerequisites</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="keycloak.html#RH-SSO">Red Hat Single Sign-On</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="configuration.html">Server Setup</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="firstapp.html">Secure your first app</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="openidconnect.html">Open ID Connect</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="usergroups.html">Users and groups</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="identityproviders.html">Identity providers</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="advanceconfig.html">More customization</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="conclusion.html">You made it!</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Keyckoak workshop - Getting started</a></li>
+    <li><a href="configuration.html">Server Setup</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/sshaaf/keycloak-workshop/edit/master/documentation/modules/ROOT/pages/configuration.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<div class="paragraph">
+<p>Now that we have the server installed, lets make a few basic configuration changes to get started.</p>
+</div>
+<div class="paragraph">
+<p>In this section we will view some of the current configuration and also add smtp config and email addresses so that our SSO server can communicate with the end users. We will then test our flow with Email verification and user registrations.</p>
+</div>
+<div class="sect2">
+<h3 id="_what_is_a_realm"><a class="anchor" href="#_what_is_a_realm"></a>What is a Realm</h3>
+<div class="paragraph">
+<p>A realm is the logical namespace for all configurations, options, for a given group or applications or services. A realm secures and manages security metadata for a set of users, applications, and registered identity brokers, clients etc. Users can be created within a specific realm within the Administration console. Roles (permission types) can be defined at the realm level and you can also set up user role mappings to assign these permissions to specific users. A user belongs to and logs into a realm. Realms are isolated from one another and can only manage and authenticate the users that they control.</p>
+</div>
+<div class="paragraph">
+<p>For this example we will configure our demo realm which needs to be created.
+Click on the left menu, and press the button <code>Add Realm</code>
+Lets give it a name <code>demojs</code>. We are calling it demojs, as the name denotes, our first applictation will be a simple Java Script Console. This console will help us do some fun exercises and learn more about Red Hat SSO. So whats the difference between the Master Realm that was already created and why did we create a new one?</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_master_realm"><a class="anchor" href="#_the_master_realm"></a>The Master Realm</h3>
+<div class="paragraph">
+<p>The initial realm is the master realm. It is the highest level in the hierarchy of realms. Admin accounts in this realm have permissions to view and manage any other realm created on the server instance. When you define your initial admin account, you create an account in the master realm. Your initial login to the admin console will also be via the master realm.</p>
+</div>
+<div class="paragraph">
+<p>It is recommended that you do not use the master realm to manage the users and applications in your organization. Reserve use of the master realm for super admins to create and manage the realms in your system. Following this security model helps prevent accidental changes and follows the tradition of permitting user accounts access to only those privileges and powers necessary for the successful completion of their current task.</p>
+</div>
+<div class="paragraph">
+<p>It is possible to disable the master realm and define admin accounts within each individual new realm you create. Each realm has its own dedicated Admin Console that you can log into with local accounts.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_setting_up_email_integration"><a class="anchor" href="#_setting_up_email_integration"></a>Setting up email integration</h3>
+<div class="paragraph">
+<p>With Single Sign-On we expect there will be users logging in, there is integration to OAuth etc. Obviously we need to have an email integration so SSO server can send verfication emails etc.</p>
+</div>
+<div class="paragraph">
+<p>To start lets setup a mail server that has a catchall and is only used for testing.</p>
+</div>
+<div class="listingblock copypaste">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">oc new-app quay.io/sshaaf/mailcatcher --name=mailcatcher
+
+oc expose svc/mailcatcher --port 8080</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Lets configure our new realm demojs. Just a small config we should do before that. Since we plan to use emails lets add the Admin email account details too.</p>
+</div>
+<div class="paragraph">
+<p>Ensure you are logged into the SSO admin console. Once logged in click on menu at the right hand corner of the SSO Admin console.</p>
+</div>
+<div class="paragraph">
+<p>Click on <code>Manage account</code>, this will bring you to the Admin user profile.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/sso_adminprofile.png" alt="Admin profile">
+</div>
+</div>
+<div class="paragraph">
+<p>Make sure you setup a valid email address that is reachable and also fill in the name fields.</p>
+</div>
+<div class="paragraph">
+<p>Once done press save and click on <code>Back to Security Admin Console</code>.</p>
+</div>
+<div class="paragraph">
+<p>Now goto the <code>realm settings</code> by clicking on the demojs Realm.</p>
+</div>
+<div class="paragraph">
+<p>Press the email Tab, and lets configure it.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/sso_adminemailconfig.png" alt="Realm Email config">
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Further more ensure that Enable SSL, Enable StartTLS and Enable Authentication are selected.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Also ensure that you have filled in the <code>From Display Name</code>, its not mandatory, but for this workshop if users are sharing emails, it will help alot.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Once done making changes <code>save</code>.</p>
+</div>
+<div class="paragraph">
+<p>In our example we are using a gmail account. If you dont have a test email address, feel free to create one.</p>
+</div>
+<div class="paragraph">
+<p>Configuring gmail needs some additional steps, this part of the guide has been tested with gmail only.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>And its strongly recommended not to use corporate email account to do this.</p>
+</li>
+<li>
+<p>If you are configuring with a test gmail account make sure to read the following <a href="https://support.google.com/mail/answer/7126229?visit_id=637108169937464461-766787457&amp;rd=2#cantsignin">support guide</a></p>
+</li>
+<li>
+<p>Ensure that you have <code>less secure app access</code> and also unlock captcha :  <a href="https://www.google.com/accounts/DisplayUnlockCaptcha" class="bare">https://www.google.com/accounts/DisplayUnlockCaptcha</a></p>
+</li>
+<li>
+<p>Recommended: Use an incongnito mode when changing access and unlocking catpcha; if there are multiple google accounts sessions in the same browser, some users have experienced issues in such a case.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Now lets make a quick test. <code>Test Connection</code>, once pressed will report back if your configuration was successful. If it is, an email should arrive in your inbox, with a subject e.g.
+'[KEYCLOAK] - SMTP test message'</p>
+</div>
+<div class="paragraph">
+<p>Perfect, now we have the email configuration.</p>
+</div>
+<div class="paragraph">
+<p>Lets move on to the <code>Login</code> tab.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/sso_adminloginconfig.png" alt="Realm Login settings">
+</div>
+</div>
+<div class="paragraph">
+<p>Enable the following:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>User Registration</code> , User registration allows new users to register to the SSO</p>
+</li>
+<li>
+<p><code>Verify Email</code> , and this will ensure that we can verify the user by thier email.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Press <code>Save</code></p>
+</div>
+<div class="paragraph">
+<p>Now lets test our basic config.
+Open a new browser session in privacy mode, or open another browser.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Ensure that you are not logged into the SSO admin panel in the newly opened browser sessions.</p>
+</li>
+</ul>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>It should show a login screen, with a link under the buttons to register.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Hit the register button and register a new user.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Ensure that you fill in the right email address, since an email will be sent to verify the newly created user. ensure that this email address is not the same as used previously in this excercise.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Once you have registered you should see the following message:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/sso_adminemailverify.png" alt="Realm Login settings">
+</div>
+</div>
+<div class="paragraph">
+<p>Head over to your email and you should have recieved a new email. Click on the link in the email to verify this new user. Now you should be able to login to the admin console with your new user.</p>
+</div>
+<div class="paragraph">
+<p>Great, so now we have some basic config for our RH-SSO server and its realm. Lets head off to the next section where we will deploy our first application. And subsequently configure it to use RH-SSO.</p>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="keycloak.html#RH-SSO">Red Hat Single Sign-On</a></span>
+  <span class="next"><a href="firstapp.html">Secure your first app</a></span>
+</nav>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <a class="rhd-logo" href="https://developers.redhat.com" target="_blank"></div>
+</footer>
+<script src="../_/js/vendor/clipboard.js"></script>
+<script src="../_/js/site.js"></script>
+<script async src="../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

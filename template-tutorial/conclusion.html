@@ -3,8 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Deploy Service :: Keycloak workshop</title>
-    <link rel="canonical" href="https://redhat-scholars.github.io/course-template/template-tutorial/02-deploy.html">
+    <title>Untitled :: Keycloak workshop</title>
+    <link rel="canonical" href="https://redhat-scholars.github.io/course-template/template-tutorial/conclusion.html">
+    <link rel="prev" href="advanceconfig.html">
+    <link rel="next" href="appendix.html">
     <meta name="generator" content="Antora 3.0.0">
     <link rel="stylesheet" href="../_/css/site.css">
   </head>
@@ -88,7 +90,7 @@
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="advanceconfig.html">More customization</a>
   </li>
-  <li class="nav-item" data-depth="1">
+  <li class="nav-item is-current-page" data-depth="1">
     <a class="nav-link" href="conclusion.html">You made it!</a>
   </li>
   <li class="nav-item" data-depth="1">
@@ -109,91 +111,59 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">Keyckoak workshop - Getting started</a></li>
-    <li><a href="02-deploy.html">Deploy Service</a></li>
+    <li><a href="conclusion.html">You made it!</a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="https://github.com/sshaaf/keycloak-workshop/edit/master/documentation/modules/ROOT/pages/02-deploy.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/sshaaf/keycloak-workshop/edit/master/documentation/modules/ROOT/pages/conclusion.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <article class="doc">
-<h1 class="page">Deploy Service</h1>
 <div class="sect1">
-<h2 id="service"><a class="anchor" href="#service"></a>The Service</h2>
+<h2 id="_conclusion"><a class="anchor" href="#_conclusion"></a>Conclusion</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The code:</p>
+<p>Achievment unlocked, you made it! Congratulations. We hope you enjoyed the labs and learnt alot more about Red Hat SSO and Keycloak and how to leverage it in a Cloud native and microservices world. There is alot more to Red Hat SSO and that was not illustrated in this workshop.</p>
 </div>
-<div class="listingblock lines_7 console-input">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class Main {
-
-    public static void main(String[] args) {
-
-    }
-
-}
-
-./mvnw compile</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="package"><a class="anchor" href="#package"></a>Packaging the Service</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_clustering_and_caching"><a class="anchor" href="#_clustering_and_caching"></a>Clustering and Caching</h3>
 <div class="paragraph">
-<p>You can package the next bash script:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">#!/bin/sh
-echo "Hello World"</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="deploy"><a class="anchor" href="#deploy"></a>Deploy the Service</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>And then you can deploy the service and execute commands inside:</p>
+<p>Red Hat SSO leverages Infinispan to cache everything loaded from the database and user stores like LDAP. This removes the need to go to the database for every request.</p>
 </div>
 <div class="paragraph">
-<p>Check that the pod is up and running:</p>
-</div>
-<div class="listingblock lines_space console-input">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kubectl get pods</code></pre>
-</div>
-</div>
-<div class="listingblock console-output">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">NAME                        READY   STATUS    RESTARTS   AGE
-apps   1/1     Running   0          5s</code></pre>
-</div>
+<p>Infinispan also enables us to provide a clustered mode where user sessions are distributed throughout the cluster. Enabling load balancing as well as redundancy.</p>
 </div>
 <div class="paragraph">
-<p>Then let&#8217;s go into the running pod to execute some commands:</p>
-</div>
-<div class="listingblock console-input">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kubectl exec -ti apps /bin/bash</code></pre>
+<p>Not only does Infinispan allow us to cluster within a single data center, but we also have support for multiple data centers. This works, but there are a few improvements that can be made here.</p>
 </div>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Change the pod name with your pod name.
-</td>
-</tr>
-</table>
+<div class="sect2">
+<h3 id="_authorization_services"><a class="anchor" href="#_authorization_services"></a>Authorization Services</h3>
+<div class="paragraph">
+<p>Red Hat SSO provides a way to centrally manage permissions for resources as well as support for UMA 2.0 that enables users themselves to manage permissions to their own resources.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dynamic_client_registration"><a class="anchor" href="#_dynamic_client_registration"></a>Dynamic Client Registration</h3>
+<div class="paragraph">
+<p>Red Hat SSO has a very powerful dynamic client registration service that allows users and applications themselves to register clients through a REST API. This supports clients defined in Red Hat SSO&#8217;s own client representation, standard OpenID Connect client format as well as SAML 2.0 client format.</p>
+</div>
+<div class="paragraph">
+<p>It is also possible to define policies on what is permitted. For example you can restrict this service to specific IP ranges, automatically require consent and a lot of other policies. You can also develop your own custom policies.
+OpenID Connect and SAML 2.0</p>
+</div>
+<div class="paragraph">
+<p>Red Hat SSO provides support for both OpenID Connect and SAML 2.0.</p>
+</div>
+<div class="paragraph">
+<p>For more information about Red Hat SSO check out our <a href="https://access.redhat.com/products/red-hat-single-sign-on">homepage</a> and our <a href="https://access.redhat.com/documentation/en-us/red_hat_single_sign-on/7.3/">documentation</a>.</p>
 </div>
 </div>
 </div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="advanceconfig.html">More customization</a></span>
+  <span class="next"><a href="appendix.html">Appendix</a></span>
+</nav>
 </article>
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>

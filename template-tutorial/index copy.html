@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Deploy Service :: Keycloak workshop</title>
-    <link rel="canonical" href="https://redhat-scholars.github.io/course-template/template-tutorial/02-deploy.html">
+    <title>Building the courseware :: Keycloak workshop</title>
+    <link rel="canonical" href="https://redhat-scholars.github.io/course-template/template-tutorial/index%20copy.html">
     <meta name="generator" content="Antora 3.0.0">
     <link rel="stylesheet" href="../_/css/site.css">
   </head>
@@ -109,88 +109,113 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">Keyckoak workshop - Getting started</a></li>
-    <li><a href="02-deploy.html">Deploy Service</a></li>
+    <li><a href="index%20copy.html">Building the courseware</a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="https://github.com/sshaaf/keycloak-workshop/edit/master/documentation/modules/ROOT/pages/02-deploy.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/sshaaf/keycloak-workshop/edit/master/documentation/modules/ROOT/pages/index%20copy.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <article class="doc">
-<h1 class="page">Deploy Service</h1>
-<div class="sect1">
-<h2 id="service"><a class="anchor" href="#service"></a>The Service</h2>
+<h1 class="page">Building the courseware</h1>
+<div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>The code:</p>
-</div>
-<div class="listingblock lines_7 console-input">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class Main {
-
-    public static void main(String[] args) {
-
-    }
-
-}
-
-./mvnw compile</code></pre>
-</div>
+<p>This site serves a get started guide for the courseware development. The course and site are built using <a href="https://asciidoctor.org/">ASCIIDoc</a> and <a href="https://docs.antora.org/antora/2.3/">Antora</a>.  Though this guide provides some quick starts for any detailed information, its better to refer to official docs.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="package"><a class="anchor" href="#package"></a>Packaging the Service</h2>
+<h2 id="_glossary"><a class="anchor" href="#_glossary"></a>Glossary</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_component"><a class="anchor" href="#_component"></a>component</h3>
 <div class="paragraph">
-<p>You can package the next bash script:</p>
+<p>The site is referred to as component. Each component is dentified by an <strong><code>antora.yml</code></strong>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_module"><a class="anchor" href="#_module"></a>module</h3>
+<div class="paragraph">
+<p>Logicial grouping site docs. The component can have one more modules under <code>modules</code> directory. It should have atleast one module called <strong>ROOT</strong>, which is default module.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_site"><a class="anchor" href="#_site"></a>site</h3>
+<div class="paragraph">
+<p>A site i.e. that site that will be published is combination of one or more components via <span class="menuseq"><b class="menu">content</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">sources</b></span> of the site playbook. The following listing shows the aggrgated site example:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">#!/bin/sh
-echo "Hello World"</code></pre>
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">runtime:
+  cache_dir: ./.cache/antora
+
+site:
+  url: http://localhost:3000/rhs-build-course/index.html
+  start_page: demo-tutorial::index.adoc
+
+content:
+  sources:
+    - url: . <i class="conum" data-value="1"></i><b>(1)</b>
+      branches: HEAD <i class="conum" data-value="2"></i><b>(2)</b>
+      start_path: documentation <i class="conum" data-value="3"></i><b>(3)</b>
+    - url: https://github.com/redhat-developer-demos/tekton-tutorial <i class="conum" data-value="4"></i><b>(4)</b>
+      branches: scholars-demo
+      start_path: documentation
+asciidoc:
+  attributes:
+    tutorial-namespace: demo
+  extensions:
+    - ./lib/remote-include-processor.js
+    - ./lib/tab-block.js
+
+ui:
+  bundle:
+    url: https://github.com/redhat-scholars/course-ui/releases/download/v0.1.3/ui-bundle.zip
+    snapshot: true
+  supplemental_files:
+    - path: ./supplemental-ui
+    - path: .nojekyll
+    - path: ui.yml
+      contents: 'static_files: [ .nojekyll ]'
+
+output:
+  clean: true
+  dir: ./gh-pages</code></pre>
 </div>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="deploy"><a class="anchor" href="#deploy"></a>Deploy the Service</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>And then you can deploy the service and execute commands inside:</p>
-</div>
-<div class="paragraph">
-<p>Check that the pod is up and running:</p>
-</div>
-<div class="listingblock lines_space console-input">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kubectl get pods</code></pre>
-</div>
-</div>
-<div class="listingblock console-output">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">NAME                        READY   STATUS    RESTARTS   AGE
-apps   1/1     Running   0          5s</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Then let&#8217;s go into the running pod to execute some commands:</p>
-</div>
-<div class="listingblock console-input">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kubectl exec -ti apps /bin/bash</code></pre>
-</div>
-</div>
-<div class="admonitionblock note">
+<div class="colist arabic">
 <table>
 <tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Change the pod name with your pod name.
-</td>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The site aggregates sources from the current path <code>.</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>The branch to be used</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>The path where to start scanning for site modules.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Another remote site content from <a href="https://github.com/redhat-developer-demos/tekton-tutorial" class="bare">https://github.com/redhat-developer-demos/tekton-tutorial</a>. The content aggregation will be done from branch <strong>scholars-demo</strong> of remote GitHub repo.</td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p>For this course, each project has two site files:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>site.yml</strong>: This is the main site playbook that will be used to generate the site-pages.</p>
+</li>
+<li>
+<p><strong>dev-site.yml</strong>: This is the development site playbook that will be used to do local site development.</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>

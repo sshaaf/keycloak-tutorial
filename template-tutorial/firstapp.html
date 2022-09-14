@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Keycloak workshop</title>
+    <link rel="canonical" href="https://redhat-scholars.github.io/course-template/template-tutorial/firstapp.html">
+    <link rel="prev" href="configuration.html">
+    <link rel="next" href="openidconnect.html">
+    <meta name="generator" content="Antora 3.0.0">
+    <link rel="stylesheet" href="../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://developers.redhat.com" target="_blank"><img src="../_/img/NewRHDFullLogo_4-color_white-wordmark.png" height="40px" alt="Red Hat Developer Program"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="https://redhat-scholars.github.io/course-template">Keycloak workshop</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://developers.redhat.com/ebooks/" target="_blank">Books</a>
+        <a class="navbar-item" href="https://developers.redhat.com/cheatsheets/" target="_blank">Cheat Sheets</a>
+        <a class="navbar-item" href="https://developers.redhat.com/events/" target="_blank">Upcoming Events</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">More Tutorials</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/kubernetes-tutorial/" target="_blank">Kubernetes</a>
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/istio-tutorial/" target="_blank">Istio</a>
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/quarkus-tutorial/" target="_blank">Quarkus</a>
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/knative-tutorial/" target="_blank">Knative</a>
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/tekton-tutorial/" target="_blank">Tekton</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="template-tutorial" data-version="master">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html"></a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="preface.html">Overview</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="preface.html#What-is-keycloak">What is Keycloak</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="settingup.html">Setup</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="settingup.html#prerequisite">Prerequisites</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="keycloak.html#RH-SSO">Red Hat Single Sign-On</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="configuration.html">Server Setup</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="firstapp.html">Secure your first app</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="openidconnect.html">Open ID Connect</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="usergroups.html">Users and groups</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="identityproviders.html">Identity providers</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="advanceconfig.html">More customization</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="conclusion.html">You made it!</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Keyckoak workshop - Getting started</a></li>
+    <li><a href="firstapp.html">Secure your first app</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/sshaaf/keycloak-workshop/edit/master/documentation/modules/ROOT/pages/firstapp.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<div class="paragraph">
+<p>Following a microservice approach will help you increase your <em>agility</em>. However, it does not come for free and
+requires a lot of discipline. It also stresses your deployment facilities. When the number of microservices grows, it
+very quickly becomes an issue to keep your system on track.</p>
+</div>
+<div class="paragraph">
+<p>To help us with this, containers are a great packaging and runtime technology. Your application runs in an
+<em>isolated</em> container, avoiding resource conflicts. But to deploy a set of containers and keep them coordinated, you
+need a container platform. That&#8217;s what Kubernetes is. Kubernetes defines a set of building blocks ("primitives") which
+collectively provide mechanisms for deploying, maintaining, and scaling applications packaged inside containers. OpenShift
+ <em>extends</em> Kubernetes with build automation and a routing system, while inheriting all the primitives from Kubernetes.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/openshift-architecture.png" alt="OpenShift Architecture" width="800">
+</div>
+</div>
+<div class="sect2">
+<h3 id="_primitives"><a class="anchor" href="#_primitives"></a>Primitives</h3>
+<div class="sect3">
+<h4 id="_pod"><a class="anchor" href="#_pod"></a>Pod</h4>
+<div class="paragraph">
+<p>The basic scheduling unit in Kubernetes is called a <em>pod</em>. It adds a higher level of abstraction to containerized components.
+A pod consists of one or more containers that are guaranteed to be co-located on the host machine and can share resources.
+Each pod in Kubernetes is assigned a unique (within the cluster) IP address, which allows applications to use ports without
+ the risk of conflict. A pod can define a <em>volume</em>, such as a local disk directory or a network disk, and expose it to
+ the containers in the pod. Pods can be manually managed through the Kubernetes API, or their management can be
+ delegated to a controller.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_labels_and_selectors"><a class="anchor" href="#_labels_and_selectors"></a>Labels and Selectors</h4>
+<div class="paragraph">
+<p>Kubernetes enables clients (users or internal components) to attach key-value pairs called <em>labels</em> to any API object
+ in the system, such as pods. Correspondingly, <em>label selectors</em> are queries against labels that resolve to matching
+ objects. Labels and selectors are the primary grouping mechanism in Kubernetes and are used to determine the components
+ to which an operation applies. Labels and selectors are used to group entities together.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_replication_controller_and_deployment"><a class="anchor" href="#_replication_controller_and_deployment"></a>Replication Controller and Deployment</h4>
+<div class="paragraph">
+<p>Controllers are entities managing other entities in order to keep them in a specific state. For instance, a
+replication controller has the responsibility to keep alive <em>x</em> replicas of a pod. When one of these replicas dies or
+ becomes unresponsive, the controller kills it and restarts one. Likewise, if there are more replicas running than desired,
+  it deletes as many as necessary to match the number.</p>
+</div>
+<div class="paragraph">
+<p>The definition of a replication controller consists mainly of:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The number of replicas desired (which can be adjusted at runtime).</p>
+</li>
+<li>
+<p>A pod definition for creating a replicated pod.</p>
+</li>
+<li>
+<p>A selector for identifying managed pods (using labels)</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Building on replication controllers, OpenShift expands support for the deployment lifecycle with the concept of <em>deployments</em>.
+ In the simplest case, a deployment just creates a new replication controller and lets it start up pods. However, OpenShift
+  deployments also provide the ability to transition from an existing deployment (<em>v1</em> for instance) of an image to a new
+  one (<em>v2</em> for instance) and also define hooks to be run before or after creating the replication controller.</p>
+</div>
+<div class="paragraph">
+<p>Openshift deployments propose a set of strategies. The default is <em>rolling</em> which implements (as the name implies) rolling
+updates and ensures that you don&#8217;t disrupt your service. Before stopping the pod, it ensures that the new <em>version</em> is alive and
+ready. Then, it routes requests to this new pod and dispose the old one.  Other strategies provided include <em>recreate</em>,
+<em>blue-green</em>, <em>A/B</em>, and the ability to create a custom strategy.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_build_and_image"><a class="anchor" href="#_build_and_image"></a>Build and Image</h4>
+<div class="paragraph">
+<p>As stated in the previous section, <code>deployments</code> are responsible for keeping the application running. But we need to
+provide the application first. The application is pushed to OpenShift as an (container) <em>image</em>. This image is
+created by a <em>build</em> and instantiated by the <em>deployment</em>.</p>
+</div>
+<div class="paragraph">
+<p>A build is the process of transforming your code into an image. The process is described in a <code>BuildConfig</code> object. Build
+objects share common characteristics: inputs for a build (source code, artifacts), the need to complete a build process,
+logging the build process, publishing resources from successful builds, and publishing the final status of the build.</p>
+</div>
+<div class="paragraph">
+<p>There are different types of builds. You can create a <code>Docker</code> build taking a <code>Dockerfile</code> as parameter. The
+resulting image is generated by <em>building</em> the <code>Dockerfile</code>. OpenShift also provides the concept of S2I (Source to
+Image) as a tool to provide reproducible images. In this lab, we are going to use S2I with binary content. We are
+going to build the application on our machine and push the resulting artifact (a <em>fat jar</em>) as input to an S2I build.
+This build creates an image for starting the application.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/openshift-build-process.png" alt="OpenShift Build Process" width="800">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_services"><a class="anchor" href="#_services"></a>Services</h4>
+<div class="paragraph">
+<p>Ok, so we know how our application is going to be <em>built</em> and instantiated on OpenShift. But how are we going to use
+it? For this we need <em>services</em>. A <em>service</em> identifies a set of pods (using labels) in order to proxy the connections
+it receives to them. Backing pods can be added to or removed from a service arbitrarily while the service remains
+consistently available enabling anything that depends on the service to refer to it at a consistent internal address.</p>
+</div>
+<div class="paragraph">
+<p>Services are assigned an IP address and port pair that, when accessed, proxy to an appropriate backing pod. A service
+uses a label selector to find all the containers running that provide a certain network service on a certain port.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/openshift-service.png" alt="OpenShift Services" width="400">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_routes"><a class="anchor" href="#_routes"></a>Routes</h4>
+<div class="paragraph">
+<p><em>Routes</em> are the last concept to understand before starting to use OpenShift. Services provides an internal IP.
+Routes exposes a service outside of OpenShift. A route allows you to associate a service with an externally-reachable
+ host name.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/openshift-entities.png" alt="OpenShift Entities" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>Now, you are ready to deploy your first application.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_your_first_project_and_deployment"><a class="anchor" href="#_your_first_project_and_deployment"></a>Your first project and deployment</h3>
+<div class="sect3">
+<h4 id="_java_script_client_adapter"><a class="anchor" href="#_java_script_client_adapter"></a>Java Script Client Adapter</h4>
+<div class="paragraph">
+<p>RH-SSO comes with a client-side JavaScript library that can be used to secure HTML5/JavaScript applications. The <code>JavaScript adapter</code> has built-in support for Cordova applications.</p>
+</div>
+<div class="paragraph">
+<p>The library can be retrieved directly from the server at /auth/js/keycloak.js. We load the the JavaScript adapter directly from Server as it will automatically be updated when you upgrade the server. If you copy the adapter to your web application instead, make sure you upgrade the adapter only after you have upgraded the server.</p>
+</div>
+<div class="paragraph">
+<p>We also have a keycloak.json file that we also use to configure our application.</p>
+</div>
+<div class="paragraph">
+<p>Alternatively you can also choose to place the json file in a different location and also load the js files manually in your code. In our case we take a simplified approach by taking he js file directly from the server and our keycloak.json file is in the root. (not in the root of our current project, but will be in root of our app when we deploy it.)</p>
+</div>
+<div class="paragraph">
+<p>In the workshop source code, locate the <code>js-console</code> and navigate to the directory in your CodeReady workspace.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_authentication_via_js"><a class="anchor" href="#_authentication_via_js"></a>Authentication via JS</h3>
+<div class="paragraph">
+<p>By default to authenticate you need to call the login function.
+However, there are also two options available to make the adapter automatically authenticate. You can pass login-required or check-sso to the init function. login-required will authenticate the client if the user is logged-in to RH-SSO or display the login page if not. check-sso will only authenticate the client if the user is already logged-in, if the user is not logged-in the browser will be redirected back to the application and remain unauthenticated.</p>
+</div>
+<div class="paragraph">
+<p>You can configure a silent check-sso option. With this feature enabled, your browser won’t do a full redirect to the RH-SSO server and back to your application, but this action will be performed in a hidden iframe, so your application resources only need to be loaded and parsed once by the browser when the app is initialized and not again after the redirect back from RH-SSO to your app. This is particularly useful in case of SPAs (Single Page Applications).</p>
+</div>
+<div class="paragraph">
+<p>In our case we use <code>kc.login(login)</code> which then redirects itself to the RH-SSO server to ensure that we have logged session.</p>
+</div>
+<div class="paragraph">
+<p>Make sure you copy your SSO server URL (created in the previous section):
+e.g. in my case it looks something like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">&gt; oc get route sso
+NAME   HOST/PORT                                        PATH   SERVICES
+sso    sso-workshop.apps.cph-c747.open.redhat.com       sso        &lt;all&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>or just copy it from your browser, ensure you copy the protocol also e.g. 'https://&#8230;&#8203;'</p>
+</div>
+<div class="paragraph">
+<p>Now open the <code>js-console/src/keycloak.json</code></p>
+</div>
+<div class="paragraph">
+<p>Change the following line "auth-server-url" with your SERVER_URL</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">{
+  "realm" : "demojs",
+  "auth-server-url" : "&lt;SERVER_URL&gt;/auth",
+  "resource" : "js-console"
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Next open the <code>js-console/src/index.html</code>
+And replace the SERVER_URL in the &lt;header&gt; &lt;src&gt;
+For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">    &lt;script src="https://sso-workshop.apps.cph-c747.open.redhat.com/auth/js/keycloak.js"&gt;&lt;/script&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now that you have the basic config in place, lets go ahead and deploy our applicaton.
+We use the S2i (Source2Image) from Openshift and create a stream from our project. This has some benefits. If we need to change anything in our app we will just start a new build. Incase you have missed anything, you could easily do the <code>start-build</code> again.</p>
+</div>
+<div class="paragraph">
+<p>We also use the httpd image-stream provided by default with Openshift. This is the Apache httpd server; hence our application will be packaged into an Apache web server.</p>
+</div>
+<div class="paragraph">
+<p>*before starting make sure that you have Code Ready workspace <code>Terminal</code> open.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>and also ensure that you have changed you directory too <code>js-console/src</code></p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">oc new-build --name js-console --binary --strategy source --image-stream httpd</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ok, so <code>oc new-build</code> should have set the right directives for our applicaiton. i.e. <code>js-console</code> which uses the httpd stream.</p>
+</div>
+<div class="paragraph">
+<p>Lets start our build; in the following command we specify that our build will be from our local source dir.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc start-build js-console --from-dir . --follow</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Once our build is successfull, lets create a new app with that build; this will be our js-console app.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc new-app --image-stream=js-console:latest</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And finally expose a route for our service so that we can connect to it externally.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc expose svc/js-console</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/openshift-first-deployment.png" alt="First deployment" width="1024">
+</div>
+</div>
+<div class="paragraph">
+<p>Click on the route url and you should see the <code>js-console</code>.  This indicates that your first application was successfully deployed. But there still need to be more config done as it would return an error. As you might have noticed that we havent configured the RH-SSO for our js-console app yet.Lets go ahead and configure that.</p>
+</div>
+<div class="paragraph">
+<p>Click on the left menu bar item <code>Clients</code>
+A list of clients will load.
+Then Click the <code>Create</code> button</p>
+</div>
+<div class="paragraph">
+<p>Following is the information you need to fill.
+To get the route to your js-console you can run the following command.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get route js-console</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Fill in the details on the form (e.g. in below screenshot) and press save. Ensure you use protocol 'http://' with your route e.g. 'http://js-console-evals01-sso-kubernetes-workshop.apps.cph-5a34.open.redhat.com'(An example shown in the following screenshot)</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/sso_adminclientconfig.png" alt="Realm Client settings">
+</div>
+</div>
+<div class="paragraph">
+<p>Now go back to your browser and relaod the JS Console app. You should be redirected to the Login page</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/sso_adminloginconfig.png" alt="Realm Login settings">
+</div>
+</div>
+<div class="paragraph">
+<p>Register a new user with an email address.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/sso_create-user.png" alt="Create user">
+</div>
+</div>
+<div class="paragraph">
+<p>After registration you should be able to login and should see the following Console with your registered users Name</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/sso_demojsconsole.png" alt="JS Console">
+</div>
+</div>
+<div class="paragraph">
+<p>Congratulations!</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Configured your first SSO JS App.</p>
+</li>
+<li>
+<p>deployed the JS App via image stream</p>
+</li>
+<li>
+<p>And how the JS Adapter works.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>And it only get interesting from here on. This app is our basis for these excercises. Lets head off to the next section and what more can we do with OIDC.</p>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="configuration.html">Server Setup</a></span>
+  <span class="next"><a href="openidconnect.html">Open ID Connect</a></span>
+</nav>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <a class="rhd-logo" href="https://developers.redhat.com" target="_blank"></div>
+</footer>
+<script src="../_/js/vendor/clipboard.js"></script>
+<script src="../_/js/site.js"></script>
+<script async src="../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

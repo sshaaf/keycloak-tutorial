@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Keycloak workshop</title>
+    <link rel="canonical" href="https://redhat-scholars.github.io/course-template/template-tutorial/identityproviders.html">
+    <link rel="prev" href="usergroups.html">
+    <link rel="next" href="advanceconfig.html">
+    <meta name="generator" content="Antora 3.0.0">
+    <link rel="stylesheet" href="../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://developers.redhat.com" target="_blank"><img src="../_/img/NewRHDFullLogo_4-color_white-wordmark.png" height="40px" alt="Red Hat Developer Program"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="https://redhat-scholars.github.io/course-template">Keycloak workshop</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://developers.redhat.com/ebooks/" target="_blank">Books</a>
+        <a class="navbar-item" href="https://developers.redhat.com/cheatsheets/" target="_blank">Cheat Sheets</a>
+        <a class="navbar-item" href="https://developers.redhat.com/events/" target="_blank">Upcoming Events</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">More Tutorials</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/kubernetes-tutorial/" target="_blank">Kubernetes</a>
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/istio-tutorial/" target="_blank">Istio</a>
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/quarkus-tutorial/" target="_blank">Quarkus</a>
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/knative-tutorial/" target="_blank">Knative</a>
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/tekton-tutorial/" target="_blank">Tekton</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="template-tutorial" data-version="master">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html"></a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="preface.html">Overview</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="preface.html#What-is-keycloak">What is Keycloak</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="settingup.html">Setup</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="settingup.html#prerequisite">Prerequisites</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="keycloak.html#RH-SSO">Red Hat Single Sign-On</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="configuration.html">Server Setup</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="firstapp.html">Secure your first app</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="openidconnect.html">Open ID Connect</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="usergroups.html">Users and groups</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="identityproviders.html">Identity providers</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="advanceconfig.html">More customization</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="conclusion.html">You made it!</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Keyckoak workshop - Getting started</a></li>
+    <li><a href="identityproviders.html">Identity providers</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/sshaaf/keycloak-workshop/edit/master/documentation/modules/ROOT/pages/identityproviders.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<div class="sect1">
+<h2 id="_identity_providers"><a class="anchor" href="#_identity_providers"></a>Identity providers</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>An Identity Broker is an intermediary service that connects multiple service providers with different identity providers. As an intermediary service, the identity broker is responsible for creating a trust relationship with an external identity provider in order to use its identities to access internal services exposed by service providers.</p>
+</div>
+<div class="paragraph">
+<p>When using Red Hat Single Sign-On as an identity broker, users are not forced to provide their credentials in order to authenticate in a specific realm. Instead, they are presented with a list of identity providers from which they can authenticate.</p>
+</div>
+<div class="paragraph">
+<p>You can also configure a default broker. In this case the user will not be given a choice, but instead be redirected directly to the parent broker. The following diagram demonstrates the steps involved when using Red Hat Single Sign-On to broker an external identity provider:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/identity_broker_flow.png" alt="Identity brokering">
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>User is not authenticated and requests a protected resource in a client application.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>The client applications redirects the user to Red Hat Single Sign-On to authenticate.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>At this point the user is presented with the login page where there is a list of identity providers supported by a realm.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>User selects one of the identity providers by clicking on its respective button or link.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Red Hat Single Sign-On issues an authentication request to the target identity provider asking for authentication and the user is redirected to the login page of the identity provider. The connection properties and other configuration options for the identity provider were previously set by the administrator in the Admin Console.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>User provides his credentials or consent in order to authenticate in the identity provider.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="7"></i><b>7</b></td>
+<td>Upon a successful authentication by the identity provider, the user is redirected back to Red Hat Single Sign-On with an authentication response. Usually this response contains a security token that will be used by Red Hat Single Sign-On to trust the authentication performed by the identity provider and retrieve information about the user.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="8"></i><b>8</b></td>
+<td>Now Red Hat Single Sign-On is going to check if the response from the identity provider is valid. If valid, it will import and create a new user or just skip that if the user already exists. If it is a new user, Red Hat Single Sign-On may ask the identity provider for information about the user if that info doesn’t already exist in the token. This is what we call identity federation. If the user already exists Red Hat Single Sign-On may ask him to link the identity returned from the identity provider with his existing account. We call this process account linking. What exactly is done is configurable and can be specified by setup of First Login Flow . At the end of this step, Red Hat Single Sign-On authenticates the user and issues its own token in order to access the requested resource in the service provider.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="9"></i><b>9</b></td>
+<td>Once the user is locally authenticated, Red Hat Single Sign-On redirects the user to the service provider by sending the token previously issued during the local authentication.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="10"></i><b>10</b></td>
+<td>The service provider receives the token from Red Hat Single Sign-On and allows access to the protected resource.</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_oauth_and_oauth2"><a class="anchor" href="#_oauth_and_oauth2"></a>OAUTH and OAUTH2</h3>
+<div class="paragraph">
+<p>Lets say you are running an e-commerce shop online. And today you have a couple of million users. Business is growing. Now you are being approached by third-party application developers to integrate with your services; Lets assume they are running a chat service or a gaming platform, they would like to provide services to your customer and thiers. Also bringing in new business. How can we handle such an integration?</p>
+</div>
+<div class="paragraph">
+<p>OAuth is a way to get access to protected data from an application. It&#8217;s safer and more secure than asking users to log in with passwords. OAuth will also allow developers to securely get the user data. So is OAuth an Authentication mechanism? No its not. OAuth provides the framework to securely access that data. So OAuth asks for a token and gets it. For Authentication you would use Open ID Connect or SAML etc. So rather then sharing passwords between services OAuth is te protocol that helps brings the whole RESTful web together. Similar to when one uses Google or Githhub login to use other services from like e.g. Red Hat developer</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_users_from_github"><a class="anchor" href="#_users_from_github"></a>Users from Github</h3>
+<div class="paragraph">
+<p>Now that we have users in Red Hat SSO as well as loading users from LDAP let&#8217;s get users from an external Identity Provider. For simplicity we&#8217;ll use GitHub, but the same approach works for a corporate identity provider and other social networks.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Open the Red Hat SSO Admin Console.</p>
+</li>
+<li>
+<p>Click on Identity Providers.</p>
+</li>
+<li>
+<p>From the drop-down select GitHub.</p>
+</li>
+<li>
+<p>Copy the value in Redirect URI. You&#8217;ll need this in a second when you create a new OAuth application in GitHub.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In a new tab open Github to register a new OAuth application.
+You can do this by either going to 'account settings/developer settings' or click this <a href="https://github.com/settings/developers">link</a></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Fill in the following values:</p>
+<div class="literalblock">
+<div class="content">
+<pre>Application name: Keycloak
+Homepage URL: &lt;JS CONSOLE URL&gt;
+Authorization callback URL: https://&lt;SERVER_URL&gt;/auth/realms/demojs/broker/github/endpoint</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">e.g. homepage url: http://js-console-sso-app-demo.apps.cph-e31a.open.redhat.com
+e.g. Authorizaiton call back url: https://sso1-sso-app-demo.apps.cph-e31a.open.redhat.com/auth/realms/demojs/broker/github/endpoint
+https://&lt;SERVER_URL&gt;/auth/realms/demojs/broker/github/endpoint</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Now copy the value for Client ID and Client Secret from GitHub to the Red Hat SSO Admin Console.</p>
+</li>
+<li>
+<p>We also want to add a mapper to retrieve the avatar from GitHub. Click on Mappers and Create.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Fill in the following values:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Name: avatar
+Mapper Type: Attribute Importer
+Social Profile JSON Field Path: avatar_url
+User Attribute Name: avatar_url</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Logout from the JS Console and instead of providing a username or password to login click on GitHub.</p>
+</div>
+<div class="paragraph">
+<p>Notice how it automatically knows your name and also has your avatar.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="literalblock">
+<div class="content">
+<pre>If your email address for the registered SSO user is the same as your github account, your avatar will not be updated.
+This is by design, since the SSO user takes priority if the attributes are the same. This also means if we had multiple identity providers with the same atrributes, SSO would always be updating that property rigorously.</pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Congratulations you have now successfully</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>How identity providers work in Red Hat SSO.</p>
+</li>
+<li>
+<p>configured Client scopes</p>
+</li>
+<li>
+<p>Added a new identity provider</p>
+</li>
+<li>
+<p>Created OAuth based connection with Github and registering your SSO server as an app.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Lets move on to the next section and do some more advanced customizaton and custom code loading.</p>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="usergroups.html">Users and groups</a></span>
+  <span class="next"><a href="advanceconfig.html">More customization</a></span>
+</nav>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <a class="rhd-logo" href="https://developers.redhat.com" target="_blank"></div>
+</footer>
+<script src="../_/js/vendor/clipboard.js"></script>
+<script src="../_/js/site.js"></script>
+<script async src="../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

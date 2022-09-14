@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Keycloak workshop</title>
+    <link rel="canonical" href="https://redhat-scholars.github.io/course-template/template-tutorial/advanceconfig.html">
+    <link rel="prev" href="identityproviders.html">
+    <link rel="next" href="conclusion.html">
+    <meta name="generator" content="Antora 3.0.0">
+    <link rel="stylesheet" href="../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://developers.redhat.com" target="_blank"><img src="../_/img/NewRHDFullLogo_4-color_white-wordmark.png" height="40px" alt="Red Hat Developer Program"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="https://redhat-scholars.github.io/course-template">Keycloak workshop</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://developers.redhat.com/ebooks/" target="_blank">Books</a>
+        <a class="navbar-item" href="https://developers.redhat.com/cheatsheets/" target="_blank">Cheat Sheets</a>
+        <a class="navbar-item" href="https://developers.redhat.com/events/" target="_blank">Upcoming Events</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">More Tutorials</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/kubernetes-tutorial/" target="_blank">Kubernetes</a>
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/istio-tutorial/" target="_blank">Istio</a>
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/quarkus-tutorial/" target="_blank">Quarkus</a>
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/knative-tutorial/" target="_blank">Knative</a>
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/tekton-tutorial/" target="_blank">Tekton</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="template-tutorial" data-version="master">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html"></a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="preface.html">Overview</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="preface.html#What-is-keycloak">What is Keycloak</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="settingup.html">Setup</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="settingup.html#prerequisite">Prerequisites</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="keycloak.html#RH-SSO">Red Hat Single Sign-On</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="configuration.html">Server Setup</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="firstapp.html">Secure your first app</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="openidconnect.html">Open ID Connect</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="usergroups.html">Users and groups</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="identityproviders.html">Identity providers</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="advanceconfig.html">More customization</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="conclusion.html">You made it!</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Keyckoak workshop - Getting started</a></li>
+    <li><a href="advanceconfig.html">More customization</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/sshaaf/keycloak-workshop/edit/master/documentation/modules/ROOT/pages/advanceconfig.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<div class="paragraph">
+<p>In this excercise lets try some of the cusomtizations Red Hat SSO has to offer.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Keys and Signing</p>
+</li>
+<li>
+<p>Custom Code</p>
+</li>
+<li>
+<p>OTP Tokens</p>
+</li>
+<li>
+<p>Themes</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_keys_and_signing"><a class="anchor" href="#_keys_and_signing"></a>Keys and Signing</h3>
+<div class="paragraph">
+<p>By default Red Hat SSO signs tokens with RS256, but we have support for other signing algorithms. We also have support for a single realm to have multiple keys.</p>
+</div>
+<div class="paragraph">
+<p>It&#8217;s even possible to change signing algorithms and signing keys transparently without any impact to users. This is a powerful feature since over time, applications can change the way they authinticate.</p>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s first try to change the signing algorithm for the JS console client.</p>
+</div>
+<div class="paragraph">
+<p>First let&#8217;s see what algorithm is currently in use.</p>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Open the JS Console, login,</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>then click on ID Token.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>This will display a rather cryptic string, which is the encoded token.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Copy this value, making sure you select everything.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>In a different tab open the <a href="https://jwt.io/">JWT validation extension</a>.</p>
+</div>
+<div class="paragraph">
+<p>What we&#8217;re interested is in the header. The field alg will show what signing algorithm is used to sign the token. It should show RS256.</p>
+</div>
+<div class="paragraph">
+<p>Great so that gives us details of the current token in use.</p>
+</div>
+<div class="paragraph">
+<p>Now let&#8217;s change this to this to something new, maybe ES256.</p>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Open the Red Hat SSO Admin Console in a new tab.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Ensure you keep the JS Console open as we want to show how it gets new tokens without having to re-login.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Click on Clients and select the js-console client.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Under Fine Grained OpenID Connect Configuration switch Access Token Signature Algorithm and ID Token Signature Algorithm to ES256.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Now go back to the JS Console and click on Refresh. This will use the Refresh Token to obtain new updated ID and Access tokens.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>Click on ID Token, copy it and open the JWT validation extension again. Notice that now the tokens are signed with ES256 instead of RS256.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>While you&#8217;re looking at the ID Token take a note of the kid, try to remember the first few characters. The kid refers to the keypair used to sign the token.</p>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Go back to the Red Hat SSO Admin Console.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Go to Realm Settings then Keys. What we&#8217;re going to do now is introduce a new set of active keys and mark the previous keys as no longer the active keys.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Click on Providers.</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/sso_adminkeyselect.png" alt="Events">
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>From the drop-down select ecdsa-generated.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Set the priority to 200 and click Save. As the priority is higher than the current active keys the new keys will be used next time tokens are signed.</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/sso_adminkeysescda.png" alt="escda">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Now go back to the JS Console and clik on Refresh. Copy the token to the JWT validation extension. Notice that the kid has now changed.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>What this does is provide a seamless way of changing signatures and keys. Currently logged-in users will receive new tokens and cookies over time and after a while you can safely remove the old keys without affecting any logged-in users.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sessions"><a class="anchor" href="#_sessions"></a>Sessions</h3>
+<div class="paragraph">
+<p>Make sure you have the JS Console open in a tab and you&#8217;re logged-in. Open the Red Hat SSO Admin Console in another tab.</p>
+</div>
+<div class="paragraph">
+<p>Find the user you are logged-in as and click on Sessions. Click on Logout all session.</p>
+</div>
+<div class="paragraph">
+<p>Go back to the JS Console and click Refresh. Notice how you are now longer authenticated.</p>
+</div>
+<div class="paragraph">
+<p>Not only can admins log out users, but users themselves can logout other sessions from the account management console.
+You can go to the following link to access your account.
+&lt;SERVER_URL&gt;/auth/realms/demojs/account</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_events"><a class="anchor" href="#_events"></a>Events</h3>
+<div class="paragraph">
+<p>Events are the system wide events, you can see each event regarding the events, e.g. is someone tried to login with wrong credentials and alot more. These details are important e.g. auditing or compliance usecases as well.</p>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Open the Red Hat SSO Admin Console.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Click on Events and Config.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Turn on Save Events and click Save.</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/sso_adminevents.png" alt="Events">
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Go back to the JS Console and click Refresh.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Logout.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Then when you log in use the wrong password, then login with the correct password.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Go back to the Events in the Red Hat SSO Admin Console and notice how there are now a list of events.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/sso_adminloginevents.png" alt="Events">
+</div>
+</div>
+<div class="paragraph">
+<p>Not only can Red Hat SSO save these events to be able to display them in the admin console and account management console, but you can develop your own event listener that can do what you want with the events.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_custom_code_and_flows"><a class="anchor" href="#_custom_code_and_flows"></a>Custom Code and Flows</h3>
+<div class="paragraph">
+<p>Red Hat SSO has a huge number of SPIs that allow you to develop your own custom providers. You can develop custom user stores, protocol mappers, authenticators, event listeners and a large number of other things. We have about 100 SPIs so you can customize a lot!</p>
+</div>
+<div class="sect3">
+<h4 id="_creating_and_adding_custom_code_to_rh_sso_stream"><a class="anchor" href="#_creating_and_adding_custom_code_to_rh_sso_stream"></a>Creating and Adding custom code to RH-SSO Stream</h4>
+<div class="paragraph">
+<p>We already have created some custom code for you to make use of.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Magic Link is an application that creates a magic link for the emails sent to users.</p>
+</li>
+<li>
+<p>Themes is also a custom theme for the system.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Lets build the two projects. Goto your code ready terminal and navigate to these projects.
+Ensure you are in the root directory e.g. sso-kubernetes-workshop.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">#build individual projects
+cd magic-link
+mvn clean compile package
+
+cd ../themes
+mvn clean compile package
+
+# copy the jar files
+cd ../sso-custom/stream
+cp ../../magic-link/target/magic-link.jar deployments/
+cp ../../themes/target/themes.jar deployments/</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>So we have now built the jar files and copied them to our working directory from where we will build our custom RH-SSO image. You can always create the images in an openshift namespace, so that all users and applications have access to it. In our case we have chosen to keep this to our project namespace only.
+Remember to <code>replace evalsXX with your username</code> and also ensure you are in the <code>sso-custom/stream</code> directory before running the following commands.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash"># Create a new project
+oc new-project &lt;evalsXX&gt;-sso-custom-kubernetes-workshop
+
+# Create a build directive with Red Hat SSO official image stream.
+oc new-build --name custom-sso73-openshift --binary --strategy source --image-stream redhat-sso73-openshift:1.0
+
+# Start the custom build
+oc start-build custom-sso73-openshift --from-dir . --follow</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Switch to this new project in your openshift console. the rest of the guide assumes the new SSO instance in this project.</p>
+</div>
+<div class="paragraph">
+<p>You can now also run <code>oc get imagestreams</code> which should render a similar output as follows.
+Notice that we have named our custom image as <code>custom-sso73-openshift</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">custom-sso73-openshift  docker-registry.default.svc:5000/&lt;evalsXX&gt;-sso-kubernetes-workshop/custom-sso73-openshift</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now that have the image ready to be deplyed we need to take one last step.
+Open up the template.json in the <code>sso-custom/stream</code> directory</p>
+</div>
+<div class="paragraph">
+<p>in the trigger section you will see something as follows</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">                            "from": {
+                                "kind": "ImageStreamTag",
+                                "namespace": "evalsXX-sso-custom-kubernetes-workshop",
+                                "name": "custom-sso73-openshift:latest"
+                            }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Remember to <code>replace evalsXX with your username</code>
+Ensure that you can change the namespace to your new project. which should be <code>&lt;evalsXX&gt;-sso-custom-kubernetes-workshop</code></p>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Copy the contents of the template file</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Goto the openshift console and press the add to project button and then Import YAML/JSON</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/openshift-addtoproject.png" alt="Events">
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Paste the content and press next.</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/openshift-templatecopy.png" alt="Events">
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>remmember to key in the admin username and password and press create.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Openshift will deploy our new custom instance of Red Hat SSO.
+Lets wait for it to be deployed successfully.</p>
+</div>
+<div class="paragraph">
+<p>While openshift is deploying, lets also deploy our JS Console.</p>
+</div>
+<div class="paragraph">
+<p>Now open the <code>js-console/src/keycloak.json</code></p>
+</div>
+<div class="paragraph">
+<p>Change the following line "auth-server-url" with your SERVER_URL</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">{
+  "realm" : "demojs",
+  "auth-server-url" : "&lt;SERVER_URL&gt;/auth",
+  "resource" : "js-console"
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Next open the <code>js-console/src/index.html</code>
+And replace the SERVER_URL in the &lt;header&gt; &lt;src&gt;
+For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">    &lt;script src="https://sso-workshop.apps.cph-c747.open.redhat.com/auth/js/keycloak.js"&gt;&lt;/script&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Before starting make sure that you have Code Ready workspace <code>Terminal</code> open.
+- and also ensure that you have changed you directory too <code>js-console/src</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc new-build --name js-console --binary --strategy source --image-stream httpd</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ok, so <code>oc new-build</code> should have set the right directives for our applicaiton. i.e. <code>js-console</code> which uses the httpd stream.</p>
+</div>
+<div class="paragraph">
+<p>Lets start our build; in the following command we specify that our build will be from our local source dir.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc start-build js-console --from-dir . --follow</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Once our build is successfull, lets create a new app with that build; this will be our js-console app.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc new-app --image-stream=js-console:latest</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And finally expose a route for our service so that we can connect to it externally.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc expose svc/js-console</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Once openshift has finished deploying the JS console and Red Hat SSO custom built.
+Lets also create a client for the JS Console.</p>
+</div>
+<div class="paragraph">
+<p>Click on the left menu bar item <code>Clients</code>
+A list of clients will load.
+Then Click the <code>Create</code> button</p>
+</div>
+<div class="paragraph">
+<p>Following is the information you need to fill.
+To get the route to your js-console you can run the following command.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get route js-console</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>We have used Master realm in this example, feel free create your own realm.
+Make sure that you have configured email as described in the earlier section on SSO Config. This needs to be done to get email for the magic link.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Also create a test user account for the realm.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Also fill in the details on the form (e.g. in below screenshot) and press save. Ensure you use protocol with your route e.g. 'http://js-console-evals01-custom-sso-kubernetes-workshop.apps.cph-5a34.open.redhat.com'(An example shown in the following screenshot)</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/sso_adminclientconfig.png" alt="Realm Client settings">
+</div>
+</div>
+<div class="paragraph">
+<p>Now go back to your browser and relaod the JS Console app. You should be redirected to the Login page</p>
+</div>
+<div class="paragraph">
+<p>When we previously deployed Red Hat SSO we also included a custom authenticator that enables users to login through email.
+Its quite commmon that users of Red Hat SSO would need to change the default flows and configuration. What if the a user wanted to make a magic link to be sent to the ones that are registered. or what if they wanted to change the system themes. or add another flow. Red Hat SSO does that pretty nicely with the ability to add these custom flows to the realm. Lets get started and make a magic link flow.</p>
+</div>
+<div class="paragraph">
+<p>The source code for the magic-link is placed in the <code>magic-link/src</code>, do take a look at the <code>MagicLinkFromAuthenticator.java</code> to see how we create the magic link. The API is quite straight forward.</p>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>To enable this open the Red Hat SSO Admin Console. Click on Authentication.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Click on Copy to create a new flow based on the browser flow.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Use the name <code>browser-email</code>. now select browser-email from the drop down list</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Click on Actions and Delete for Username Password Form and OTP Form.</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/sso_adminauthethicationdelete.png" alt="Delete Actions">
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Then click on Add execution.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Select Magic Link from the list.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Once it&#8217;s saved select Required for the Magic Link.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Now to use this new flow when users login select Bindings and select browser-email for the Browser flow.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Open the JS Console and click Logout. For the email enter your email address and click Log In. Open your email and you should have a mail with a link which will authenticate you and bring you to the JS Console.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You should see the following screen, once you reload JS Console.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/sso_adminmagiclink.png" alt="Magic Link">
+</div>
+</div>
+<div class="paragraph">
+<p>Congratulations! you have successfully done the following</p>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Created a new Red Hat SSO image with custom code in it.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>You have deployed a custom flow, that is different from the normal login flow</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Lastly you have learnt how to create your own realm and configure your client for it.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_configuring_otp"><a class="anchor" href="#_configuring_otp"></a>Configuring OTP</h3>
+<div class="paragraph">
+<p>&#8201;&#8212;&#8201;ADD OTP details and screenshot</p>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Now let&#8217;s add OTP to the mix.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Open the Red Hat SSO Admin Console.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Go back to the Browser-email flow.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Click Actions and Add execution.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Select OTP Form. Then mark it as Required.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Open the JS Console and click Logout. Login again. After you&#8217;ve done the email based login you will be prompted to configure OTP. You&#8217;ll need Google Authenticator or FreeOTP on your phone to try this out.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_themes"><a class="anchor" href="#_themes"></a>Themes</h3>
+<div class="paragraph">
+<p>We didnt cover details on the Themes in this section, but you should now be able to change the theme in the realm settings. The new theme is for the login page only and should be called <code>sunrise</code>. Try it out!</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_achievement_unlocked"><a class="anchor" href="#_achievement_unlocked"></a>Achievement unlocked!</h3>
+<div class="paragraph">
+<p>Congratulations in this section you have been able to customzie Red Hat SSO with Themes, OTP integration, changing keys, and adding custom code like the magic link. Now you are almost ready for the real world deployment. Lets head off to the next section where we will create our first Spring greeting service and secure it with Red Hat SSO.</p>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="identityproviders.html">Identity providers</a></span>
+  <span class="next"><a href="conclusion.html">You made it!</a></span>
+</nav>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <a class="rhd-logo" href="https://developers.redhat.com" target="_blank"></div>
+</footer>
+<script src="../_/js/vendor/clipboard.js"></script>
+<script src="../_/js/site.js"></script>
+<script async src="../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
