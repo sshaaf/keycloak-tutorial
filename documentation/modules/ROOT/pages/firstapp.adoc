@@ -153,7 +153,7 @@ We also use the httpd image-stream provided by default with Openshift. This is t
 *before starting make sure that you have Code Ready workspace `Terminal` open. 
 
 - and also ensure that you have changed you directory too `js-console/src`
-[source, bash]
+[source,bash,subs="+macros,+attributes"]
 ----
 
 oc new-build --name js-console --binary --strategy source --image-stream httpd
@@ -162,19 +162,19 @@ oc new-build --name js-console --binary --strategy source --image-stream httpd
 Ok, so `oc new-build` should have set the right directives for our applicaiton. i.e. `js-console` which uses the httpd stream.
 
 Lets start our build; in the following command we specify that our build will be from our local source dir.
-[source, bash]
+[source,bash,subs="+macros,+attributes"]
 ----
 oc start-build js-console --from-dir . --follow
 ----
 
 Once our build is successfull, lets create a new app with that build; this will be our js-console app.
-[source, bash]
+[source,bash,subs="+macros,+attributes"]
 ----
 oc new-app --image-stream=js-console:latest
 ----
 
 And finally expose a route for our service so that we can connect to it externally.
-[source, bash]
+[source,bash,subs="+macros,+attributes"]
 ----
 
 oc expose svc/js-console
@@ -193,7 +193,7 @@ Then Click the `Create` button
 Following is the information you need to fill. 
 To get the route to your js-console you can run the following command.
 
-[source, bash]
+[source,bash,subs="+macros,+attributes"]
 ----
 oc get route js-console
 ----

@@ -23,6 +23,8 @@ It is possible to disable the master realm and define admin accounts within each
 With Single Sign-On we expect there will be users logging in, there is integration to OAuth etc. Obviously we need to have an email integration so SSO server can send verfication emails etc. 
 
 To start lets setup a mail server that has a catchall and is only used for testing. 
+MailCatcher runs a super simple SMTP server which catches any message sent to it to display in a web interface. By running mailcatcher we can get all the emails within our setup for testing and we wont need to use our personal or corporate emails for this. Its a great utility. the mail server is setup on port '1025' and the html interface to recieve and send should be setup on port '8080'. Lets create our test mail server by running the following commands.
+
 
 [source,java,role="copypaste"]
 ----
@@ -31,6 +33,13 @@ oc new-app quay.io/sshaaf/mailcatcher --name=mailcatcher
 oc expose svc/mailcatcher --port 8080
 ----
 
+<1> the first command will initiate the mailcatcher server
+
+<2> the second ones exposes the port 8080 to ensure we have the http end point setup for viewing the emails recieved. 
+
+Once the installation is done you should see it as follows. 
+
+image::openshift_mailcatcherinstalled.png[Mailcatcher]
 
 Lets configure our new realm demojs. Just a small config we should do before that. Since we plan to use emails lets add the Admin email account details too. 
 
@@ -55,23 +64,13 @@ image::sso_adminemailconfig.png[Realm Email config]
 
 Once done making changes `save`. 
 
-In our example we are using a gmail account. If you dont have a test email address, feel free to create one. 
-
-Configuring gmail needs some additional steps, this part of the guide has been tested with gmail only. 
-
-[IMPORTANT]
-====
-- And its strongly recommended not to use corporate email account to do this.
-
-- If you are configuring with a test gmail account make sure to read the following https://support.google.com/mail/answer/7126229?visit_id=637108169937464461-766787457&rd=2#cantsignin[support guide] 
-
-- Ensure that you have `less secure app access` and also unlock captcha :  https://www.google.com/accounts/DisplayUnlockCaptcha
-
-- Recommended: Use an incongnito mode when changing access and unlocking catpcha; if there are multiple google accounts sessions in the same browser, some users have experienced issues in such a case.
-====
-
 Now lets make a quick test. `Test Connection`, once pressed will report back if your configuration was successful. If it is, an email should arrive in your inbox, with a subject e.g. 
 '[KEYCLOAK] - SMTP test message'
+
+Goto the mailcatcher service and you should see something similar.
+
+image::mailcatcher_ui.png[Email config]
+
 
 Perfect, now we have the email configuration. 
 

@@ -1,7 +1,3 @@
-
-* xref:preface.adoc[Overview]
-** xref:preface.adoc#What-is-keycloak[What is Keycloak]
-
 * xref:settingup.adoc[Setup]
 ** xref:settingup.adoc#prerequisite[Prerequisites]
 

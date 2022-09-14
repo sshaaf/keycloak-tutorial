@@ -8,9 +8,8 @@ site:
 
 content:
   sources:
-    - url: ./
+    - url: .
       start_path: documentation
-
 asciidoc:
   attributes:
     release-version: master

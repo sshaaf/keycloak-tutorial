@@ -115,7 +115,7 @@ We already have created some custom code for you to make use of.
 Lets build the two projects. Goto your code ready terminal and navigate to these projects. 
 Ensure you are in the root directory e.g. sso-kubernetes-workshop. 
 
-[source, bash]
+[source,bash,subs="+macros,+attributes"]
 ----
 #build individual projects
 cd magic-link
@@ -134,7 +134,7 @@ cp ../../themes/target/themes.jar deployments/
 So we have now built the jar files and copied them to our working directory from where we will build our custom RH-SSO image. You can always create the images in an openshift namespace, so that all users and applications have access to it. In our case we have chosen to keep this to our project namespace only.
 Remember to `replace evalsXX with your username` and also ensure you are in the `sso-custom/stream` directory before running the following commands.
 
-[source, bash]
+[source,bash,subs="+macros,+attributes"]
 ----
 
 # Create a new project
@@ -151,7 +151,7 @@ Switch to this new project in your openshift console. the rest of the guide assu
 
 You can now also run `oc get imagestreams` which should render a similar output as follows.
 Notice that we have named our custom image as `custom-sso73-openshift`. 
-[source, bash]
+[source,bash,subs="+macros,+attributes"]
 ----
 custom-sso73-openshift  docker-registry.default.svc:5000/<evalsXX>-sso-kubernetes-workshop/custom-sso73-openshift   
 ----
@@ -214,7 +214,7 @@ For example:
 
 Before starting make sure that you have Code Ready workspace `Terminal` open. 
 - and also ensure that you have changed you directory too `js-console/src`
-[source, bash]
+[source,bash,subs="+macros,+attributes"]
 ----
 
 oc new-build --name js-console --binary --strategy source --image-stream httpd
@@ -223,19 +223,19 @@ oc new-build --name js-console --binary --strategy source --image-stream httpd
 Ok, so `oc new-build` should have set the right directives for our applicaiton. i.e. `js-console` which uses the httpd stream.
 
 Lets start our build; in the following command we specify that our build will be from our local source dir.
-[source, bash]
+[source,bash,subs="+macros,+attributes"]
 ----
 oc start-build js-console --from-dir . --follow
 ----
 
 Once our build is successfull, lets create a new app with that build; this will be our js-console app.
-[source, bash]
+[source,bash,subs="+macros,+attributes"]
 ----
 oc new-app --image-stream=js-console:latest
 ----
 
 And finally expose a route for our service so that we can connect to it externally.
-[source, bash]
+[source,bash,subs="+macros,+attributes"]
 ----
 
 oc expose svc/js-console
@@ -251,7 +251,7 @@ Then Click the `Create` button
 Following is the information you need to fill. 
 To get the route to your js-console you can run the following command.
 
-[source, bash]
+[source,bash,subs="+macros,+attributes"]
 ----
 oc get route js-console
 ----

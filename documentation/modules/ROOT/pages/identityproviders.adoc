@@ -56,7 +56,7 @@ You can do this by either going to 'account settings/developer settings' or clic
     Homepage URL: <JS CONSOLE URL>
     Authorization callback URL: https://<SERVER_URL>/auth/realms/demojs/broker/github/endpoint
 
-[source, bash]
+[source,bash,subs="+macros,+attributes"]
 ----
 e.g. homepage url: http://js-console-sso-app-demo.apps.cph-e31a.open.redhat.com
 e.g. Authorizaiton call back url: https://sso1-sso-app-demo.apps.cph-e31a.open.redhat.com/auth/realms/demojs/broker/github/endpoint
