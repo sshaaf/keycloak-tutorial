@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Welcome to Keycloak workshop :: Keycloak workshop</title>
+    <title>Untitled :: Keycloak workshop</title>
     <link rel="canonical" href="https://redhat-scholars.github.io/course-template/template-tutorial/index.html">
-    <link rel="next" href="preface.html">
+    <link rel="next" href="settingup.html">
     <meta name="generator" content="Antora 3.0.0">
     <link rel="stylesheet" href="../_/css/site.css">
   </head>
@@ -50,15 +50,6 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="preface.html">Overview</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="preface.html#What-is-keycloak">What is Keycloak</a>
-  </li>
-</ul>
-  </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="settingup.html">Setup</a>
@@ -108,50 +99,112 @@
 <button class="nav-toggle"></button>
   <a href="index.html" class="home-link is-current"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
-  <ul>
-    <li><a href="index.html">Keyckoak workshop - Getting started</a></li>
-    <li><a href="index.html">Welcome to Keycloak workshop</a></li>
-  </ul>
 </nav>
   <div class="edit-this-page"><a href="https://github.com/sshaaf/keycloak-workshop/edit/master/documentation/modules/ROOT/pages/index.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <article class="doc">
-<h1 class="page">Welcome to Keycloak workshop</h1>
-<div class="sect1 text-center strong">
-<h2>Publish Services to Kubernetes</h2>
+<div class="imageblock">
+<div class="content">
+<img src="_images/mainpagetitle.png" alt="Preface">
+</div>
+</div>
+<div class="sect1">
+<h2 id="What-is-Keycloak"><a class="anchor" href="#What-is-Keycloak"></a>What is Red Hat SSO / keycloak</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A Kubernetes tutorial to show how you can deploy a Java service to a Kubernetes cluster as it was a child game.</p>
+<p>Red Hat Single Sign-On (RH-SSO) is based on the Keycloak project and enables you to secure your web applications by providing Web single sign-on (SSO) capabilities based on popular standards such as SAML 2.0, OpenID Connect and OAuth 2.0. The RH-SSO server can act as a SAML or OpenID Connect-based Identity Provider, mediating with your enterprise user directory or 3rd-party SSO provider for identity information and your applications via standards-based tokens.</p>
+</div>
+<div class="paragraph">
+<p>Keycloak is an open source Identity and Access Management solution aimed at modern applications and services. It makes it easy to secure applications and services with little to no code.</p>
+</div>
+<div class="paragraph">
+<p>This page gives a brief introduction to RH-SSO and Keycloak and some of the features. For a full list of features refer to the <a href="https://access.redhat.com/documentation/en-us/red_hat_single_sign-on/7.3/">documentation</a></p>
+</div>
+<div class="paragraph">
+<p>Trying RH-SSO is quick and easy. And we will take a deep dive into RH-SSO in this workshop. But first; What is RH-SSO?</p>
+</div>
+<div class="sect2">
+<h3 id="_single_sign_on"><a class="anchor" href="#_single_sign_on"></a>Single-Sign On</h3>
+<div class="paragraph">
+<p>Users authenticate with RH-SSO rather than individual applications. This means that your applications don&#8217;t have to deal with login forms, authenticating users, and storing users. Once logged-in to RH-SSO, users don&#8217;t have to login again to access a different application.</p>
+</div>
+<div class="paragraph">
+<p>This also applied to logout. RH-SSO provides single-sign out, which means users only have to logout once to be logged-out of all applications that use RH-SSO.</p>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_kerberos_bridge"><a class="anchor" href="#_kerberos_bridge"></a>Kerberos bridge</h3>
+<div class="paragraph">
+<p>If your users authenticate to workstations with Kerberos (LDAP or active directory) they can also be automatically authenticated to RH-SSO without having to provide their username and password again after they log on to the workstation.</p>
 </div>
-<div class="sect1 tiles browse">
-<h2>Browse modules</h2>
-<div class="sectionbody">
-<div class="ulist tile">
-<div class="title"><a href="01-setup.html" class="xref page">Get Started</a></div>
-<ul>
-<li>
-<p><a href="01-setup.html#minikube" class="xref page">Minikube</a></p>
-</li>
-</ul>
 </div>
-<div class="ulist tile">
-<div class="title"><a href="02-deploy.html" class="xref page">Deploying</a></div>
-<ul>
-<li>
-<p><a href="02-deploy.html#package" class="xref page">Package the Application</a></p>
-</li>
-<li>
-<p><a href="02-deploy.html#deploy" class="xref page">Deploy the Application</a></p>
-</li>
-</ul>
+<div class="sect2">
+<h3 id="_identity_brokering_and_social_login"><a class="anchor" href="#_identity_brokering_and_social_login"></a>Identity Brokering and Social Login</h3>
+<div class="paragraph">
+<p>Enabling login with social networks is easy to add through the admin console. It&#8217;s just a matter of selecting the social network you want to add. No code or changes to your application is required.</p>
+</div>
+<div class="paragraph">
+<p>RH-SSO can also authenticate users with existing OpenID Connect or SAML 2.0 Identity Providers. Again, this is just a matter of configuring the Identity Provider through the admin console.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_user_federation"><a class="anchor" href="#_user_federation"></a>User Federation</h3>
+<div class="paragraph">
+<p>RH-SSO has built-in support to connect to existing LDAP or Active Directory servers. You can also implement your own provider if you have users in other stores, such as a relational database.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_client_adapters"><a class="anchor" href="#_client_adapters"></a>Client Adapters</h3>
+<div class="paragraph">
+<p>RH-SSO Client Adapters makes it really easy to secure applications and services. We have adapters available for a number of platforms and programming languages, but if there&#8217;s not one available for your chosen platform don&#8217;t worry. RH-SSO is built on standard protocols so you can use any OpenID Connect Resource Library or SAML 2.0 Service Provider library out there.
+Gatekeeper</p>
+</div>
+<div class="paragraph">
+<p>You can also opt to use a proxy to secure your applications which removes the need to modify your application at all.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_admin_console"><a class="anchor" href="#_admin_console"></a>Admin Console</h3>
+<div class="paragraph">
+<p>Through the admin console administrators can centrally manage all aspects of the RH-SSO server.</p>
+</div>
+<div class="paragraph">
+<p>They can enable and disable various features. They can configure identity brokering and user federation.</p>
+</div>
+<div class="paragraph">
+<p>They can create and manage applications and services, and define fine-grained authorization policies.</p>
+</div>
+<div class="paragraph">
+<p>They can also manage users, including permissions and sessions.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_account_management_console"><a class="anchor" href="#_account_management_console"></a>Account Management Console</h3>
+<div class="paragraph">
+<p>Through the account management console users can manage their own accounts. They can update the profile, change passwords, and setup two-factor authentication.</p>
+</div>
+<div class="paragraph">
+<p>Users can also manage sessions as well as view history for the account.</p>
+</div>
+<div class="paragraph">
+<p>If you&#8217;ve enabled social login or identity brokering users can also link their accounts with additional providers to allow them to authenticate to the same account with different identity providers.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_standard_protocols"><a class="anchor" href="#_standard_protocols"></a>Standard Protocols</h3>
+<div class="paragraph">
+<p>RH-SSO is based on standard protocols and provides support for OpenID Connect, OAuth 2.0, and SAML.
+Authorization Services</p>
+</div>
+<div class="paragraph">
+<p>If role based authorization doesn&#8217;t cover your needs, RH-SSO provides fine-grained authorization services as well. This allows you to manage permissions for all your services from the RH-SSO admin console and gives you the power to define exactly the policies you need.</p>
+</div>
 </div>
 </div>
 </div>
 <nav class="pagination">
-  <span class="next"><a href="preface.html">Overview</a></span>
+  <span class="next"><a href="settingup.html">Setup</a></span>
 </nav>
 </article>
 <aside class="toc sidebar" data-title="Contents" data-levels="2">

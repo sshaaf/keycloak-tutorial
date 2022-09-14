@@ -53,15 +53,6 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="preface.html">Overview</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="preface.html#What-is-keycloak">What is Keycloak</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <button class="nav-item-toggle"></button>
     <a class="nav-link" href="settingup.html">Setup</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
@@ -153,13 +144,34 @@ Lets give it a name <code>demojs</code>. We are calling it demojs, as the name d
 <p>With Single Sign-On we expect there will be users logging in, there is integration to OAuth etc. Obviously we need to have an email integration so SSO server can send verfication emails etc.</p>
 </div>
 <div class="paragraph">
-<p>To start lets setup a mail server that has a catchall and is only used for testing.</p>
+<p>To start lets setup a mail server that has a catchall and is only used for testing.
+MailCatcher runs a super simple SMTP server which catches any message sent to it to display in a web interface. By running mailcatcher we can get all the emails within our setup for testing and we wont need to use our personal or corporate emails for this. Its a great utility. the mail server is setup on port '1025' and the html interface to recieve and send should be setup on port '8080'. Lets create our test mail server by running the following commands.</p>
 </div>
 <div class="listingblock copypaste">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">oc new-app quay.io/sshaaf/mailcatcher --name=mailcatcher
 
 oc expose svc/mailcatcher --port 8080</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>the first command will initiate the mailcatcher server</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>the second ones exposes the port 8080 to ensure we have the http end point setup for viewing the emails recieved.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Once the installation is done you should see it as follows.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/openshift_mailcatcherinstalled.png" alt="Mailcatcher">
 </div>
 </div>
 <div class="paragraph">
@@ -209,41 +221,16 @@ oc expose svc/mailcatcher --port 8080</code></pre>
 <p>Once done making changes <code>save</code>.</p>
 </div>
 <div class="paragraph">
-<p>In our example we are using a gmail account. If you dont have a test email address, feel free to create one.</p>
-</div>
-<div class="paragraph">
-<p>Configuring gmail needs some additional steps, this part of the guide has been tested with gmail only.</p>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>And its strongly recommended not to use corporate email account to do this.</p>
-</li>
-<li>
-<p>If you are configuring with a test gmail account make sure to read the following <a href="https://support.google.com/mail/answer/7126229?visit_id=637108169937464461-766787457&amp;rd=2#cantsignin">support guide</a></p>
-</li>
-<li>
-<p>Ensure that you have <code>less secure app access</code> and also unlock captcha :  <a href="https://www.google.com/accounts/DisplayUnlockCaptcha" class="bare">https://www.google.com/accounts/DisplayUnlockCaptcha</a></p>
-</li>
-<li>
-<p>Recommended: Use an incongnito mode when changing access and unlocking catpcha; if there are multiple google accounts sessions in the same browser, some users have experienced issues in such a case.</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
 <p>Now lets make a quick test. <code>Test Connection</code>, once pressed will report back if your configuration was successful. If it is, an email should arrive in your inbox, with a subject e.g.
 '[KEYCLOAK] - SMTP test message'</p>
+</div>
+<div class="paragraph">
+<p>Goto the mailcatcher service and you should see something similar.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/mailcatcher_ui.png" alt="Email config">
+</div>
 </div>
 <div class="paragraph">
 <p>Perfect, now we have the email configuration.</p>

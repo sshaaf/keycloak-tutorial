@@ -53,15 +53,6 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="preface.html">Overview</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="preface.html#What-is-keycloak">What is Keycloak</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <button class="nav-item-toggle"></button>
     <a class="nav-link" href="settingup.html">Setup</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
@@ -122,7 +113,7 @@
 <p>Red Hat Single Sign-On is an integrated sign-on solution available as a Red Hat JBoss Middleware for OpenShift containerized image. The Red Hat Single Sign-On for OpenShift image provides an authentication server for users to centrally log in, log out, register, and manage user accounts for web applications, mobile applications, and RESTful web services.</p>
 </div>
 <div class="paragraph">
-<p>Red Hat offers multiple OpenShift application templates utilizing the Red Hat Single Sign-On for OpenShift image version number 7.3.3.GA.</p>
+<p>Red Hat offers multiple OpenShift application templates utilizing the Red Hat Single Sign-On for OpenShift image version number 7.5.GA.</p>
 </div>
 <div class="sect2">
 <h3 id="_what_are_openshift_templates"><a class="anchor" href="#_what_are_openshift_templates"></a>What are OpenShift Templates?</h3>
@@ -141,25 +132,21 @@ The reason for having multiple templates is to service different customer use ca
 Red Hat SSO and Keycloak are used vastly and in different indesutries thereby it can fit into many use cases. Whether the customer uses OIDC or SAML i.e. using new and modern appliction architectures or connecting to legacy applications. Red Hat SSO has the capabilities to be the Single Sign On solution. More to come, stay tuned!</p>
 </div>
 <div class="paragraph">
-<p>These define the resources needed to develop Red Hat Single Sign-On 7.3.3.GA server based deployment and can be split into the following two categories:</p>
+<p>These define the resources needed to develop Red Hat Single Sign-On 7.5.GA server based deployment and can be split into the following two categories:</p>
 </div>
 <div class="paragraph">
-<p>Templates using HTTPS and JGroups keystores and a truststore for the Red Hat Single Sign-On server, all prepared beforehand. These secure the TLS communication using passthrough TLS termination:
-    - sso73-https: Red Hat Single Sign-On 7.3.3.GA backed by internal H2 database on the same pod.</p>
+<p>Templates using HTTPS and JGroups keystores and a truststore for the Red Hat Single Sign-On server, all prepared beforehand. These secure the TLS communication using passthrough TLS termination:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>sso73-mysql: Red Hat Single Sign-On 7.3.3.GA backed by ephemeral MySQL database on a separate pod.</p>
+<p>sso75-https: Red Hat Single Sign-On 7.5.GA backed by internal H2 database on the same pod.</p>
 </li>
 <li>
-<p>sso73-mysql-persistent: Red Hat Single Sign-On 7.3.3.GA backed by persistent MySQL database on a separate pod.</p>
+<p>sso75-postgresql: Red Hat Single Sign-On 7.5.GA backed by ephemeral PostgreSQL database on a separate pod.</p>
 </li>
 <li>
-<p>sso73-postgresql: Red Hat Single Sign-On 7.3.3.GA backed by ephemeral PostgreSQL database on a separate pod.</p>
-</li>
-<li>
-<p>sso73-postgresql-persistent: Red Hat Single Sign-On 7.3.3.GA backed by persistent PostgreSQL database on a separate pod.</p>
+<p>sso75-postgresql-persistent: Red Hat Single Sign-On 7.5.GA backed by persistent PostgreSQL database on a separate pod.</p>
 </li>
 </ul>
 </div>
@@ -169,13 +156,10 @@ Red Hat SSO and Keycloak are used vastly and in different indesutries thereby it
 <div class="ulist">
 <ul>
 <li>
-<p>sso73-x509-https: Red Hat Single Sign-On 7.3.3.GA with auto-generated HTTPS keystore and Red Hat Single Sign-On truststore, backed by internal H2 database. The ASYM_ENCRYPT JGroups protocol is used for encryption of cluster traffic.</p>
+<p>sso75-x509-https: Red Hat Single Sign-On 7.5.GA with auto-generated HTTPS keystore and Red Hat Single Sign-On truststore, backed by internal H2 database. The ASYM_ENCRYPT JGroups protocol is used for encryption of cluster traffic.</p>
 </li>
 <li>
-<p>sso73-x509-mysql-persistent: Red Hat Single Sign-On 7.3.3.GA with auto-generated HTTPS keystore and Red Hat Single Sign-On truststore, backed by persistent MySQL database. The ASYM_ENCRYPT JGroups protocol is used for encryption of cluster traffic.</p>
-</li>
-<li>
-<p>sso73-x509-postgresql-persistent: Red Hat Single Sign-On 7.3.3.GA with auto-generated HTTPS keystore and Red Hat Single Sign-On truststore, backed by persistent PostgreSQL database. The ASYM_ENCRYPT JGroups protocol is used for encryption of cluster traffic.</p>
+<p>sso75-x509-postgresql-persistent: Red Hat Single Sign-On 7.5.GA with auto-generated HTTPS keystore and Red Hat Single Sign-On truststore, backed by persistent PostgreSQL database. The ASYM_ENCRYPT JGroups protocol is used for encryption of cluster traffic.</p>
 </li>
 </ul>
 </div>
@@ -210,7 +194,7 @@ Run the following command:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get templates -n openshift -o name | grep -o 'sso73.\+'</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get templates -n openshift -o name | grep -o 'sso75.\+'</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -218,14 +202,11 @@ Run the following command:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">sso73-https
-sso73-mysql
-sso73-mysql-persistent
-sso73-postgresql
-sso73-postgresql-persistent
-sso73-x509-https
-sso73-x509-mysql-persistent
-sso73-x509-postgresql-persistent</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">sso75-https
+sso75-ocp4-x509-https
+sso75-ocp4-x509-postgresql-persistent
+sso75-postgresql
+sso75-postgresql-persistent</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -240,11 +221,11 @@ But first we want to know the different parameters our template will use. Today 
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Click on the search field next to the button <code>Add to Project</code> and search for <code>SSO</code></td>
+<td>Click on the button <code>Add</code> in the right menu and then &gt; 'Developer Catalog' &gt; 'All services'</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>Press <code>View all results</code></td>
+<td>search for <code>SSO</code></td>
 </tr>
 </table>
 </div>
@@ -257,14 +238,14 @@ But first we want to know the different parameters our template will use. Today 
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Select the following template <code>Red Hat Single Sign-On 7.3 + PostgreSQL (Persistent)</code> by clicking on it.</td>
+<td>Select the following template <code>Red Hat Single Sign-On 7.5 on OpenJDK (Ephemeral)</code> by clicking on it.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Press Next. This will bring you to the Configuration section.
+<td>'Initiate Template'. This will bring you to the Configuration section.
 All the fields in this section denote the parameters that can be added to this template. Take a look at all the diferent parameters.
-For now we will only change the SSO Administrator username and password.
-I have chosen 'admin/pass' feel free to choose any, but make sure you remember them or note them, since we will be using them again.</td>
+For now we will only change the SSO Administrator username and password
+I have chosen 'admin/password' feel free to choose any, but make sure you remember them or note them, since we will be using them again. For the realm choose 'demojs' as shown in the image.</td>
 </tr>
 </table>
 </div>
