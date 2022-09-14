@@ -1,7 +1,18 @@
-* xref:01-setup.adoc[1. Setup]
-** xref:01-setup.adoc#prerequisite[Prerequisites]
-** xref:01-setup.adoc#minikube[Setup Minikube]
 
-* xref:02-deploy.adoc[2. Deploy Service]
-** xref:02-deploy.adoc#package[Build Service]
-** xref:02-deploy.adoc#deploy[Deploy Dervice]
+* xref:preface.adoc[Overview]
+** xref:preface.adoc#What-is-keycloak[What is Keycloak]
+
+* xref:settingup.adoc[Setup]
+** xref:settingup.adoc#prerequisite[Prerequisites]
+
+* xref:keycloak.adoc#RH-SSO[Red Hat Single Sign-On]
+* xref:configuration.adoc[Server Setup]
+
+* xref:firstapp.adoc[Secure your first app]
+
+* xref:openidconnect.adoc[Open ID Connect]
+* xref:usergroups.adoc[Users and groups]
+* xref:identityproviders.adoc[Identity providers]
+* xref:advanceconfig.adoc[More customization]
+* xref:conclusion.adoc[You made it!]
+* xref:appendix.adoc[Appendix]

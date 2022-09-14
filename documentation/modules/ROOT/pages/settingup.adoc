@@ -1,0 +1,71 @@
+Before we start the lab, its important that you read the following instructions carefully. These instructions will be refered from the rest of the content if you need to come back to them.
+
+== First Step: Create a Developer sandbox account
+
+All the labs are using the Red Hat OpenShift Sandbox. 
+Red Hat OpenShift Sandbox ("Sandbox") is a great platform for learning and experimenting with Red Hat OpenShift.The Sandbox is a great platform for learning and experimenting with OpenShift. 
+
+To start using it you will need to create an account if you dont already have one https://developers.redhat.com/developer-sandbox[here]. Once you have the account head off to this page and start your sandbox. It might take a couple of minutes to get access.
+
+image::sso_developersandbox-register.png[Create sandbox account]
+
+Furthermore we also need the Developer Sandbox IDE https://developers.redhat.com/developer-sandbox/ide[Sandbox IDE], in this lab
+
+image::sso_ide_start.png[Create IDE account]
+
+I have created a stack in the Sandbox IDE which includes all the command line tools and plugins required. However if you do not want to use the sandbox IDE, you can look at the appendix section for setting up everything locally.
+
+== Click-to-Copy
+
+You will see various code and command blocks throughout these exercises which can be copy/pasted directly by clicking anywhere on the block of text:
+
+[source,java,role="copypaste"]
+----
+/* A sample Java snippet that you can copy/paste by clicking */
+public class CopyMeDirectly {
+    public static void main(String[] args) {
+        System.out.println("You can copy this whole class with a click!");
+    }
+}
+----
+
+Simply click once and the whole block is copied to your clipboard, ready to be pasted with kbd:[CTRL+V] (or kbd:[Command+V] on Mac OS).
+
+There are also Linux shell commands that can also be copied and pasted into a Terminal in your Development Environment:
+
+[source,sh,role="copypaste"]
+----
+echo "This is a bash shell command that you can copy/paste by clicking"
+----
+
+== The Workshop Environment You Are Using
+
+Your workshop environment consists of several components which have been pre-installed and are ready to use. Depending on which parts of the workshop you’re doing, you will use one or more of:
+
+* https://www.openshift.com/[Red Hat OpenShift,window=_blank] - You’ll use one or more *projects* (Kubernetes namespaces) that are your own and are isolated from other workshop students
+* https://developers.redhat.com/products/openshift-dev-spaces/overview[Red Hat OpenShift Dev Spaces,window=_blank] - Built on the open Eclipse Che project, Red Hat OpenShift Dev Spaces uses Kubernetes and containers to provide any member of the development or IT team with a consistent, secure, and zero-configuration development environment. The experience is as fast and familiar as an integrated development environment on your laptop. OpenShift Dev Spaces is included with your OpenShift subscription and is available in the Operator Hub. It provides development teams a faster and more reliable foundation on which to work, and it gives operations centralized control and peace of mind.
+* https://www.redhat.com/en/products/runtimes[Red Hat Runtimes, window=_blank] - a collection of cloud-native runtimes and platform that enables Spring Boot, Node.js, and https://quarkus.io[Quarkus, window=_blank] developers to create Cloud-native apps with ease.
+
+
+== How to complete this workshop
+
+Click the "Next >" button at the bottom to advance to the next topic. You can also use the menu on the left to move around the instructions at will.
+
+Good luck, and let’s get started!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

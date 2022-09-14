@@ -1,6 +1,10 @@
 name: template-tutorial
-title: Template Tutorial
+title: Keyckoak workshop - Getting started
 version: master
+asciidoc:
+  attributes:
+    source-language: asciidoc@
+    xrefstyle: short@
 nav:
   - modules/ROOT/nav.adoc
 

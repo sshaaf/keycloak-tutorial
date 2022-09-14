@@ -1,4 +1,4 @@
-= Welcome to Template Tutorial
+= Welcome to Keycloak workshop
 :page-layout: home
 :!sectids:
 
