@@ -1,7 +1,7 @@
 * xref:settingup.adoc[Setup]
 ** xref:settingup.adoc#prerequisite[Prerequisites]
 ** xref:settingup.adoc#wsenvironment[Environment]
-** xref:settingup.adoc#idesetup[IDE setup]
+** xref:settingup.adoc#idesetup[Setting up your IDE]
 
 * xref:keycloak.adoc#RH-SSO[Red Hat Single Sign-On]
 ** xref:keycloak.adoc#ocptemplates[Openshift templates]
