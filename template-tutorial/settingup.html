@@ -62,7 +62,7 @@
     <a class="nav-link" href="#wsenvironment">Environment</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="#idesetup">IDE setup</a>
+    <a class="nav-link" href="#idesetup">Setting up your IDE</a>
   </li>
 </ul>
   </li>
@@ -291,11 +291,11 @@ Red Hat OpenShift Sandbox ("Sandbox") is a great platform for learning and exper
 <h2 id="_click_to_copy"><a class="anchor" href="#_click_to_copy"></a>Click-to-Copy</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You will see various code and command blocks throughout these exercises which can be copy/pasted directly by clicking anywhere on the block of text:</p>
+<p>You will see various code and command blocks throughout these exercises which can be copy/pasted directly:</p>
 </div>
 <div class="listingblock copypaste">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">/* A sample Java snippet that you can copy/paste by clicking */
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">/* A sample Java snippet that you can copy/paste */
 public class CopyMeDirectly {
     public static void main(String[] args) {
         System.out.println("You can copy this whole class with a click!");
@@ -304,14 +304,11 @@ public class CopyMeDirectly {
 </div>
 </div>
 <div class="paragraph">
-<p>Simply click once and the whole block is copied to your clipboard, ready to be pasted with kbd:[CTRL+V] (or kbd:[Command+V] on Mac OS).</p>
-</div>
-<div class="paragraph">
 <p>There are also Linux shell commands that can also be copied and pasted into a Terminal in your Development Environment:</p>
 </div>
 <div class="listingblock copypaste">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">echo "This is a bash shell command that you can copy/paste by clicking"</code></pre>
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">echo "This is a bash shell command that you can copy/paste"</code></pre>
 </div>
 </div>
 </div>
@@ -338,7 +335,45 @@ public class CopyMeDirectly {
 </div>
 </div>
 <div class="sect1">
-<h2 id="idesetup"><a class="anchor" href="#idesetup"></a>How to complete this workshop</h2>
+<h2 id="idesetup"><a class="anchor" href="#idesetup"></a>Setting up your IDE</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can use your preffered IDE, however you will need tools like the 'oc' command line as well. We have already created a stack for the sandbox IDE so everything is already installed for you.</p>
+</div>
+<div class="paragraph">
+<p>Open up your <a href="https://developers.redhat.com/developer-sandbox/ide">Sandbox IDE</a></p>
+</div>
+<div class="paragraph">
+<p>Once logged in browse to workspaces, and click the add workspace button as shown below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/che_createworkspace.png" alt="Add workspace button">
+</div>
+</div>
+<div class="paragraph">
+<p>The already created stack and the source code for the labs exists on the following git url</p>
+</div>
+<div class="listingblock copypaste">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">https://github.com/RedHat-Middleware-Workshops/sso-workshop.git</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Copy the above link to the 'Git Repo URL' and press create and open. This should start loading and installing your stack. It can take a couple of minutes so let it run in the browser tab.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/che_createandopen.png" alt="Create and Open workspace">
+</div>
+</div>
+<div class="paragraph">
+<p>Perfect, now you should have an IDE setup. Lets move on to the workshop.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_how_to_complete_this_workshop"><a class="anchor" href="#_how_to_complete_this_workshop"></a>How to complete this workshop</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Click the "Next &gt;" button at the bottom to advance to the next topic. You can also use the menu on the left to move around the instructions at will.</p>
