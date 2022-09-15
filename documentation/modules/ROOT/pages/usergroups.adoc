@@ -1,13 +1,14 @@
+[#usergroups]
 You can manage users and groups in Red Hat SSO, and also import from different feredration providers e.g. LDAP and Kerberos. In this lab we only use the User, groups function provided with Red Hat SSO, and wont be importing from LDAP or Kerberos. However bear in mind that most of the customers would have an internal directory server where the users are stored. And Red Hat SSO can easily connect with them.
-
-{{ OCP_URL }}
-
 
 Red Hat SSO has supports for both roles and groups.
 
 Roles can be added realm-wide or to specific applications. There is also support for composite roles where a role can be a composite of other roles. This allows for instance creating a default role that can be added to all users, but in turn easily managing what roles all the users with the default role will have.
 
 Groups have a parent/child relationship where a child inherits from its parent. Groups can be mapped to roles, have attributes or just added directly to the token for your application to resolve its meaning.
+
+[#create-role]
+=== Create role
 
 Let's start by creating a role and see it in the token.
 
@@ -37,6 +38,9 @@ Let's start by creating a role and see it in the token.
 
 Refresh your js-console and notice that there is a `realm_access` claim in the token that now contains the user role.
 
+
+[#create-group]
+=== Create group
 
 Next let's create a Group. 
 
@@ -92,7 +96,7 @@ Now let's make sure this group and the claim is added to the token.
   ]
 ----
 
-
+[#user-federation]
 === User Federation
 Red Hat Single Sign-On can federate external user databases. Out of the box we have support for LDAP and Active Directory. 
 

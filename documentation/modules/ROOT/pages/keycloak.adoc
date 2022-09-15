@@ -1,7 +1,9 @@
+[#RH-SSO]
 Red Hat Single Sign-On is an integrated sign-on solution available as a Red Hat JBoss Middleware for OpenShift containerized image. The Red Hat Single Sign-On for OpenShift image provides an authentication server for users to centrally log in, log out, register, and manage user accounts for web applications, mobile applications, and RESTful web services.
 
 Red Hat offers multiple OpenShift application templates utilizing the Red Hat Single Sign-On for OpenShift image version number 7.5.GA. 
 
+[#ocptemplates]
 === What are OpenShift Templates?
 
 A template describes a set of objects that can be parameterized and processed to produce a list of objects for creation by OpenShift Container Platform. A template can be processed to create anything you have permission to create within a project, for example services, build configurations, and deployment configurations. A template may also define a set of labels to apply to every object defined in the template.
@@ -41,6 +43,7 @@ Other templates that integrate with Red Hat Single Sign-On are also available:
 
 These templates contain environment variables specific to Red Hat Single Sign-On that enable automatic Red Hat Single Sign-On client registration when deployed. Further on in the Advance Config section we will go over some of those environment variables and details.
 
+[#ssoinstall]
 === Installing RH-SSO on Openshift
 Make sure that you have completed the setting up instructions before moving forward in this section. 
 

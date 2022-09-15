@@ -1,3 +1,4 @@
+[#advance-config]
 In this excercise lets try some of the cusomtizations Red Hat SSO has to offer. 
 
 - Keys and Signing
@@ -8,7 +9,8 @@ In this excercise lets try some of the cusomtizations Red Hat SSO has to offer.
 
 - Themes
 
-=== Keys and Signing
+[#keys-signing]
+== Keys and Signing
 By default Red Hat SSO signs tokens with RS256, but we have support for other signing algorithms. We also have support for a single realm to have multiple keys.
 
 It's even possible to change signing algorithms and signing keys transparently without any impact to users. This is a powerful feature since over time, applications can change the way they authinticate. 
@@ -67,7 +69,8 @@ image::sso_adminkeysescda.png[escda]
 
 What this does is provide a seamless way of changing signatures and keys. Currently logged-in users will receive new tokens and cookies over time and after a while you can safely remove the old keys without affecting any logged-in users.
 
-=== Sessions
+[#sessions]
+== Sessions
 Make sure you have the JS Console open in a tab and you're logged-in. Open the Red Hat SSO Admin Console in another tab.
 
 Find the user you are logged-in as and click on Sessions. Click on Logout all session.
@@ -78,7 +81,8 @@ Not only can admins log out users, but users themselves can logout other session
 You can go to the following link to access your account.
 <SERVER_URL>/auth/realms/demojs/account
 
-=== Events
+[#events]
+== Events
 Events are the system wide events, you can see each event regarding the events, e.g. is someone tried to login with wrong credentials and alot more. These details are important e.g. auditing or compliance usecases as well. 
 
 <1> Open the Red Hat SSO Admin Console. 
@@ -102,11 +106,12 @@ image::sso_adminloginevents.png[Events]
 
 Not only can Red Hat SSO save these events to be able to display them in the admin console and account management console, but you can develop your own event listener that can do what you want with the events.
 
-=== Custom Code and Flows
+[#custom-code]
+== Custom Code and Flows
 Red Hat SSO has a huge number of SPIs that allow you to develop your own custom providers. You can develop custom user stores, protocol mappers, authenticators, event listeners and a large number of other things. We have about 100 SPIs so you can customize a lot!
 
-
-==== Creating and Adding custom code to RH-SSO Stream
+[#add-custom-code]
+=== Creating and Adding custom code to RH-SSO Stream
 We already have created some custom code for you to make use of. 
 
 - Magic Link is an application that creates a magic link for the emails sent to users.
@@ -134,6 +139,7 @@ cp ../../themes/target/themes.jar deployments/
 So we have now built the jar files and copied them to our working directory from where we will build our custom RH-SSO image. You can always create the images in an openshift namespace, so that all users and applications have access to it. In our case we have chosen to keep this to our project namespace only.
 Remember to `replace evalsXX with your username` and also ensure you are in the `sso-custom/stream` directory before running the following commands.
 
+[#custom-stream]
 [source,bash,subs="+macros,+attributes"]
 ----
 
@@ -211,7 +217,7 @@ For example:
 
 ```
 
-
+[#deploy-js-app]
 Before starting make sure that you have Code Ready workspace `Terminal` open. 
 - and also ensure that you have changed you directory too `js-console/src`
 [source,bash,subs="+macros,+attributes"]
@@ -306,7 +312,8 @@ Congratulations! you have successfully done the following
 
 <3> Lastly you have learnt how to create your own realm and configure your client for it. 
 
-=== Configuring OTP
+[#configure-otp]
+== Configuring OTP
 
 -- ADD OTP details and screenshot
 
@@ -322,7 +329,8 @@ Congratulations! you have successfully done the following
 
 Open the JS Console and click Logout. Login again. After you've done the email based login you will be prompted to configure OTP. You'll need Google Authenticator or FreeOTP on your phone to try this out.
 
-=== Themes
+[#themes]
+== Themes
 We didnt cover details on the Themes in this section, but you should now be able to change the theme in the realm settings. The new theme is for the login page only and should be called `sunrise`. Try it out!
 
 
