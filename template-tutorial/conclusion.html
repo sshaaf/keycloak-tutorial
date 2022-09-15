@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Untitled :: Keycloak workshop</title>
     <link rel="canonical" href="https://redhat-scholars.github.io/course-template/template-tutorial/conclusion.html">
-    <link rel="prev" href="advanceconfig.html">
+    <link rel="prev" href="advanceconfig.html#advance-config">
     <link rel="next" href="appendix.html">
     <meta name="generator" content="Antora 3.0.0">
     <link rel="stylesheet" href="../_/css/site.css">
@@ -58,28 +58,175 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="settingup.html#prerequisite">Prerequisites</a>
   </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="settingup.html#wsenvironment">Environment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="settingup.html#idesetup">IDE setup</a>
+  </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
     <a class="nav-link" href="keycloak.html#RH-SSO">Red Hat Single Sign-On</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="keycloak.html#ocptemplates">Openshift templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="keycloak.html#ssoinstall">SSO Installation</a>
+  </li>
+</ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="configuration.html">Server Setup</a>
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="configuration.html#server-setup">Server Setup</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="configuration.html#what-is-realm">What is a realm</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="configuration.html#master-realm">Master realm</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="configuration.html#email-integration">Email integration</a>
+  </li>
+</ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="firstapp.html">Secure your first app</a>
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="firstapp.html#firstapp">Secure your first app</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="firstapp.html#openshift-architecture">OpenShift architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="firstapp.html#openshift-primitives">Primitives</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="firstapp.html#openshift-pod">Pod</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="firstapp.html#openshift-labels">Labels and selectors</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="firstapp.html#openshift-controller">Replication controller</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="firstapp.html#openshift-builds">Builds and images</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="firstapp.html#openshift-services">Services</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="firstapp.html#openshift-routes">Routes</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="firstapp.html#firstapp-project">Project and deployment</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="firstapp.html#firstapp-authentication">Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="firstapp.html#firstapp-deployment">Deployment</a>
+  </li>
+</ul>
+  </li>
+</ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="openidconnect.html">Open ID Connect</a>
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="openidconnect.html#openid-connect">Open ID Connect</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="openidconnect.html#openid-saml-comparison">OIDC and SAML</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="openidconnect.html#openid-accesstokens">Access tokens</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="openidconnect.html#openid-idtokens">ID tokens</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="openidconnect.html#openid-claims">Claims</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="openidconnect.html#openid-client-scopes">Client scopes</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="openidconnect.html#openid-consent">Consent</a>
+  </li>
+</ul>
+  </li>
+</ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="usergroups.html">Users and groups</a>
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="usergroups.html#usergroups">Users and groups</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="usergroups.html#create-role">Create role</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="usergroups.html#create-group">Create group</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="usergroups.html#user-federation">User federation</a>
+  </li>
+</ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="identityproviders.html">Identity providers</a>
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="identityproviders.html#identity-providers">Identity providers</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="identityproviders.html#oauth-oauth2">OAUTH and OAUTH2</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="identityproviders.html#github-integration">Users from Github</a>
+  </li>
+</ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="advanceconfig.html">More customization</a>
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="advanceconfig.html#advance-config">More customization</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanceconfig.html#keys-signing">Keys and signing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanceconfig.html#sessions">Sessions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanceconfig.html#events">Events</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="advanceconfig.html#custom-code">Custom code and flows</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="advanceconfig.html#add-custom-code">Add custom code</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="advanceconfig.html#custom-stream">Create stream</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="advanceconfig.html#deploy-js-app">Re-deploy App</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanceconfig.html#configure-otp">Configuring OTP</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanceconfig.html#themes">Themes</a>
+  </li>
+</ul>
   </li>
   <li class="nav-item is-current-page" data-depth="1">
     <a class="nav-link" href="conclusion.html">You made it!</a>
@@ -152,7 +299,7 @@ OpenID Connect and SAML 2.0</p>
 </div>
 </div>
 <nav class="pagination">
-  <span class="prev"><a href="advanceconfig.html">More customization</a></span>
+  <span class="prev"><a href="advanceconfig.html#advance-config">More customization</a></span>
   <span class="next"><a href="appendix.html">Appendix</a></span>
 </nav>
 </article>

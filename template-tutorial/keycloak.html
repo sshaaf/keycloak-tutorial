@@ -6,7 +6,7 @@
     <title>Untitled :: Keycloak workshop</title>
     <link rel="canonical" href="https://redhat-scholars.github.io/course-template/template-tutorial/keycloak.html">
     <link rel="prev" href="settingup.html">
-    <link rel="next" href="configuration.html">
+    <link rel="next" href="configuration.html#server-setup">
     <meta name="generator" content="Antora 3.0.0">
     <link rel="stylesheet" href="../_/css/site.css">
   </head>
@@ -58,28 +58,175 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="settingup.html#prerequisite">Prerequisites</a>
   </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="settingup.html#wsenvironment">Environment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="settingup.html#idesetup">IDE setup</a>
+  </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
     <a class="nav-link" href="#RH-SSO">Red Hat Single Sign-On</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#ocptemplates">Openshift templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#ssoinstall">SSO Installation</a>
+  </li>
+</ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="configuration.html">Server Setup</a>
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="configuration.html#server-setup">Server Setup</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="configuration.html#what-is-realm">What is a realm</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="configuration.html#master-realm">Master realm</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="configuration.html#email-integration">Email integration</a>
+  </li>
+</ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="firstapp.html">Secure your first app</a>
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="firstapp.html#firstapp">Secure your first app</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="firstapp.html#openshift-architecture">OpenShift architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="firstapp.html#openshift-primitives">Primitives</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="firstapp.html#openshift-pod">Pod</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="firstapp.html#openshift-labels">Labels and selectors</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="firstapp.html#openshift-controller">Replication controller</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="firstapp.html#openshift-builds">Builds and images</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="firstapp.html#openshift-services">Services</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="firstapp.html#openshift-routes">Routes</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="firstapp.html#firstapp-project">Project and deployment</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="firstapp.html#firstapp-authentication">Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="firstapp.html#firstapp-deployment">Deployment</a>
+  </li>
+</ul>
+  </li>
+</ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="openidconnect.html">Open ID Connect</a>
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="openidconnect.html#openid-connect">Open ID Connect</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="openidconnect.html#openid-saml-comparison">OIDC and SAML</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="openidconnect.html#openid-accesstokens">Access tokens</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="openidconnect.html#openid-idtokens">ID tokens</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="openidconnect.html#openid-claims">Claims</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="openidconnect.html#openid-client-scopes">Client scopes</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="openidconnect.html#openid-consent">Consent</a>
+  </li>
+</ul>
+  </li>
+</ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="usergroups.html">Users and groups</a>
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="usergroups.html#usergroups">Users and groups</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="usergroups.html#create-role">Create role</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="usergroups.html#create-group">Create group</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="usergroups.html#user-federation">User federation</a>
+  </li>
+</ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="identityproviders.html">Identity providers</a>
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="identityproviders.html#identity-providers">Identity providers</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="identityproviders.html#oauth-oauth2">OAUTH and OAUTH2</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="identityproviders.html#github-integration">Users from Github</a>
+  </li>
+</ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="advanceconfig.html">More customization</a>
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="advanceconfig.html#advance-config">More customization</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanceconfig.html#keys-signing">Keys and signing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanceconfig.html#sessions">Sessions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanceconfig.html#events">Events</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="advanceconfig.html#custom-code">Custom code and flows</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="advanceconfig.html#add-custom-code">Add custom code</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="advanceconfig.html#custom-stream">Create stream</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="advanceconfig.html#deploy-js-app">Re-deploy App</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanceconfig.html#configure-otp">Configuring OTP</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanceconfig.html#themes">Themes</a>
+  </li>
+</ul>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="conclusion.html">You made it!</a>
@@ -109,14 +256,14 @@
   </div>
   <div class="content">
 <article class="doc">
-<div class="paragraph">
+<div id="RH-SSO" class="paragraph">
 <p>Red Hat Single Sign-On is an integrated sign-on solution available as a Red Hat JBoss Middleware for OpenShift containerized image. The Red Hat Single Sign-On for OpenShift image provides an authentication server for users to centrally log in, log out, register, and manage user accounts for web applications, mobile applications, and RESTful web services.</p>
 </div>
 <div class="paragraph">
 <p>Red Hat offers multiple OpenShift application templates utilizing the Red Hat Single Sign-On for OpenShift image version number 7.5.GA.</p>
 </div>
 <div class="sect2">
-<h3 id="_what_are_openshift_templates"><a class="anchor" href="#_what_are_openshift_templates"></a>What are OpenShift Templates?</h3>
+<h3 id="ocptemplates"><a class="anchor" href="#ocptemplates"></a>What are OpenShift Templates?</h3>
 <div class="paragraph">
 <p>A template describes a set of objects that can be parameterized and processed to produce a list of objects for creation by OpenShift Container Platform. A template can be processed to create anything you have permission to create within a project, for example services, build configurations, and deployment configurations. A template may also define a set of labels to apply to every object defined in the template.</p>
 </div>
@@ -184,7 +331,7 @@ Red Hat SSO and Keycloak are used vastly and in different indesutries thereby it
 </div>
 </div>
 <div class="sect2">
-<h3 id="_installing_rh_sso_on_openshift"><a class="anchor" href="#_installing_rh_sso_on_openshift"></a>Installing RH-SSO on Openshift</h3>
+<h3 id="ssoinstall"><a class="anchor" href="#ssoinstall"></a>Installing RH-SSO on Openshift</h3>
 <div class="paragraph">
 <p>Make sure that you have completed the setting up instructions before moving forward in this section.</p>
 </div>
@@ -282,7 +429,7 @@ I have chosen 'admin/password' feel free to choose any, but make sure you rememb
 </div>
 <nav class="pagination">
   <span class="prev"><a href="settingup.html">Setup</a></span>
-  <span class="next"><a href="configuration.html">Server Setup</a></span>
+  <span class="next"><a href="configuration.html#server-setup">Server Setup</a></span>
 </nav>
 </article>
 <aside class="toc sidebar" data-title="Contents" data-levels="2">

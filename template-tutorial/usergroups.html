@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Untitled :: Keycloak workshop</title>
     <link rel="canonical" href="https://redhat-scholars.github.io/course-template/template-tutorial/usergroups.html">
-    <link rel="prev" href="openidconnect.html">
-    <link rel="next" href="identityproviders.html">
+    <link rel="prev" href="openidconnect.html#openid-connect">
+    <link rel="next" href="identityproviders.html#identity-providers">
     <meta name="generator" content="Antora 3.0.0">
     <link rel="stylesheet" href="../_/css/site.css">
   </head>
@@ -58,28 +58,175 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="settingup.html#prerequisite">Prerequisites</a>
   </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="settingup.html#wsenvironment">Environment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="settingup.html#idesetup">IDE setup</a>
+  </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
     <a class="nav-link" href="keycloak.html#RH-SSO">Red Hat Single Sign-On</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="keycloak.html#ocptemplates">Openshift templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="keycloak.html#ssoinstall">SSO Installation</a>
+  </li>
+</ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="configuration.html">Server Setup</a>
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="configuration.html#server-setup">Server Setup</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="configuration.html#what-is-realm">What is a realm</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="configuration.html#master-realm">Master realm</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="configuration.html#email-integration">Email integration</a>
+  </li>
+</ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="firstapp.html">Secure your first app</a>
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="firstapp.html#firstapp">Secure your first app</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="firstapp.html#openshift-architecture">OpenShift architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="firstapp.html#openshift-primitives">Primitives</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="firstapp.html#openshift-pod">Pod</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="firstapp.html#openshift-labels">Labels and selectors</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="firstapp.html#openshift-controller">Replication controller</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="firstapp.html#openshift-builds">Builds and images</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="firstapp.html#openshift-services">Services</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="firstapp.html#openshift-routes">Routes</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="firstapp.html#firstapp-project">Project and deployment</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="firstapp.html#firstapp-authentication">Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="firstapp.html#firstapp-deployment">Deployment</a>
+  </li>
+</ul>
+  </li>
+</ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="openidconnect.html">Open ID Connect</a>
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="openidconnect.html#openid-connect">Open ID Connect</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="openidconnect.html#openid-saml-comparison">OIDC and SAML</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="1">
-    <a class="nav-link" href="usergroups.html">Users and groups</a>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="openidconnect.html#openid-accesstokens">Access tokens</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="openidconnect.html#openid-idtokens">ID tokens</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="openidconnect.html#openid-claims">Claims</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="openidconnect.html#openid-client-scopes">Client scopes</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="openidconnect.html#openid-consent">Consent</a>
+  </li>
+</ul>
+  </li>
+</ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="identityproviders.html">Identity providers</a>
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#usergroups">Users and groups</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#create-role">Create role</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#create-group">Create group</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#user-federation">User federation</a>
+  </li>
+</ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="advanceconfig.html">More customization</a>
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="identityproviders.html#identity-providers">Identity providers</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="identityproviders.html#oauth-oauth2">OAUTH and OAUTH2</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="identityproviders.html#github-integration">Users from Github</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="advanceconfig.html#advance-config">More customization</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanceconfig.html#keys-signing">Keys and signing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanceconfig.html#sessions">Sessions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanceconfig.html#events">Events</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="advanceconfig.html#custom-code">Custom code and flows</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="advanceconfig.html#add-custom-code">Add custom code</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="advanceconfig.html#custom-stream">Create stream</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="advanceconfig.html#deploy-js-app">Re-deploy App</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanceconfig.html#configure-otp">Configuring OTP</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanceconfig.html#themes">Themes</a>
+  </li>
+</ul>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="conclusion.html">You made it!</a>
@@ -102,18 +249,15 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">Keyckoak workshop - Getting started</a></li>
-    <li><a href="usergroups.html">Users and groups</a></li>
+    <li><a href="#usergroups">Users and groups</a></li>
   </ul>
 </nav>
   <div class="edit-this-page"><a href="https://github.com/sshaaf/keycloak-workshop/edit/master/documentation/modules/ROOT/pages/usergroups.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <article class="doc">
-<div class="paragraph">
+<div id="usergroups" class="paragraph">
 <p>You can manage users and groups in Red Hat SSO, and also import from different feredration providers e.g. LDAP and Kerberos. In this lab we only use the User, groups function provided with Red Hat SSO, and wont be importing from LDAP or Kerberos. However bear in mind that most of the customers would have an internal directory server where the users are stored. And Red Hat SSO can easily connect with them.</p>
-</div>
-<div class="paragraph">
-<p>{{ OCP_URL }}</p>
 </div>
 <div class="paragraph">
 <p>Red Hat SSO has supports for both roles and groups.</p>
@@ -124,6 +268,8 @@
 <div class="paragraph">
 <p>Groups have a parent/child relationship where a child inherits from its parent. Groups can be mapped to roles, have attributes or just added directly to the token for your application to resolve its meaning.</p>
 </div>
+<div class="sect2">
+<h3 id="create-role"><a class="anchor" href="#create-role"></a>Create role</h3>
 <div class="paragraph">
 <p>Let&#8217;s start by creating a role and see it in the token.</p>
 </div>
@@ -163,6 +309,9 @@
 <div class="paragraph">
 <p>Refresh your js-console and notice that there is a <code>realm_access</code> claim in the token that now contains the user role.</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="create-group"><a class="anchor" href="#create-group"></a>Create group</h3>
 <div class="paragraph">
 <p>Next let&#8217;s create a Group.</p>
 </div>
@@ -263,8 +412,9 @@ Claim JSON Type: `String`</pre>
   ]</code></pre>
 </div>
 </div>
+</div>
 <div class="sect2">
-<h3 id="_user_federation"><a class="anchor" href="#_user_federation"></a>User Federation</h3>
+<h3 id="user-federation"><a class="anchor" href="#user-federation"></a>User Federation</h3>
 <div class="paragraph">
 <p>Red Hat Single Sign-On can federate external user databases. Out of the box we have support for LDAP and Active Directory.</p>
 </div>
@@ -285,8 +435,8 @@ We have added claims both via user and via groups.</p>
 </div>
 </div>
 <nav class="pagination">
-  <span class="prev"><a href="openidconnect.html">Open ID Connect</a></span>
-  <span class="next"><a href="identityproviders.html">Identity providers</a></span>
+  <span class="prev"><a href="openidconnect.html#openid-connect">Open ID Connect</a></span>
+  <span class="next"><a href="identityproviders.html#identity-providers">Identity providers</a></span>
 </nav>
 </article>
 <aside class="toc sidebar" data-title="Contents" data-levels="2">

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Untitled :: Keycloak workshop</title>
     <link rel="canonical" href="https://redhat-scholars.github.io/course-template/template-tutorial/advanceconfig.html">
-    <link rel="prev" href="identityproviders.html">
+    <link rel="prev" href="identityproviders.html#identity-providers">
     <link rel="next" href="conclusion.html">
     <meta name="generator" content="Antora 3.0.0">
     <link rel="stylesheet" href="../_/css/site.css">
@@ -58,28 +58,175 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="settingup.html#prerequisite">Prerequisites</a>
   </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="settingup.html#wsenvironment">Environment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="settingup.html#idesetup">IDE setup</a>
+  </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
     <a class="nav-link" href="keycloak.html#RH-SSO">Red Hat Single Sign-On</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="keycloak.html#ocptemplates">Openshift templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="keycloak.html#ssoinstall">SSO Installation</a>
+  </li>
+</ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="configuration.html">Server Setup</a>
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="configuration.html#server-setup">Server Setup</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="configuration.html#what-is-realm">What is a realm</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="configuration.html#master-realm">Master realm</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="configuration.html#email-integration">Email integration</a>
+  </li>
+</ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="firstapp.html">Secure your first app</a>
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="firstapp.html#firstapp">Secure your first app</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="firstapp.html#openshift-architecture">OpenShift architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="firstapp.html#openshift-primitives">Primitives</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="firstapp.html#openshift-pod">Pod</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="firstapp.html#openshift-labels">Labels and selectors</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="firstapp.html#openshift-controller">Replication controller</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="firstapp.html#openshift-builds">Builds and images</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="firstapp.html#openshift-services">Services</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="firstapp.html#openshift-routes">Routes</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="firstapp.html#firstapp-project">Project and deployment</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="firstapp.html#firstapp-authentication">Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="firstapp.html#firstapp-deployment">Deployment</a>
+  </li>
+</ul>
+  </li>
+</ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="openidconnect.html">Open ID Connect</a>
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="openidconnect.html#openid-connect">Open ID Connect</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="openidconnect.html#openid-saml-comparison">OIDC and SAML</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="openidconnect.html#openid-accesstokens">Access tokens</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="openidconnect.html#openid-idtokens">ID tokens</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="openidconnect.html#openid-claims">Claims</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="openidconnect.html#openid-client-scopes">Client scopes</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="openidconnect.html#openid-consent">Consent</a>
+  </li>
+</ul>
+  </li>
+</ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="usergroups.html">Users and groups</a>
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="usergroups.html#usergroups">Users and groups</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="usergroups.html#create-role">Create role</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="usergroups.html#create-group">Create group</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="usergroups.html#user-federation">User federation</a>
+  </li>
+</ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="identityproviders.html">Identity providers</a>
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="identityproviders.html#identity-providers">Identity providers</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="identityproviders.html#oauth-oauth2">OAUTH and OAUTH2</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="1">
-    <a class="nav-link" href="advanceconfig.html">More customization</a>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="identityproviders.html#github-integration">Users from Github</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#advance-config">More customization</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#keys-signing">Keys and signing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#sessions">Sessions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#events">Events</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#custom-code">Custom code and flows</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#add-custom-code">Add custom code</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#custom-stream">Create stream</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#deploy-js-app">Re-deploy App</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#configure-otp">Configuring OTP</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#themes">Themes</a>
+  </li>
+</ul>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="conclusion.html">You made it!</a>
@@ -102,14 +249,14 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">Keyckoak workshop - Getting started</a></li>
-    <li><a href="advanceconfig.html">More customization</a></li>
+    <li><a href="#advance-config">More customization</a></li>
   </ul>
 </nav>
   <div class="edit-this-page"><a href="https://github.com/sshaaf/keycloak-workshop/edit/master/documentation/modules/ROOT/pages/advanceconfig.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <article class="doc">
-<div class="paragraph">
+<div id="advance-config" class="paragraph">
 <p>In this excercise lets try some of the cusomtizations Red Hat SSO has to offer.</p>
 </div>
 <div class="ulist">
@@ -128,8 +275,9 @@
 </li>
 </ul>
 </div>
-<div class="sect2">
-<h3 id="_keys_and_signing"><a class="anchor" href="#_keys_and_signing"></a>Keys and Signing</h3>
+<div class="sect1">
+<h2 id="keys-signing"><a class="anchor" href="#keys-signing"></a>Keys and Signing</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>By default Red Hat SSO signs tokens with RS256, but we have support for other signing algorithms. We also have support for a single realm to have multiple keys.</p>
 </div>
@@ -254,8 +402,10 @@
 <p>What this does is provide a seamless way of changing signatures and keys. Currently logged-in users will receive new tokens and cookies over time and after a while you can safely remove the old keys without affecting any logged-in users.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_sessions"><a class="anchor" href="#_sessions"></a>Sessions</h3>
+</div>
+<div class="sect1">
+<h2 id="sessions"><a class="anchor" href="#sessions"></a>Sessions</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Make sure you have the JS Console open in a tab and you&#8217;re logged-in. Open the Red Hat SSO Admin Console in another tab.</p>
 </div>
@@ -271,8 +421,10 @@ You can go to the following link to access your account.
 &lt;SERVER_URL&gt;/auth/realms/demojs/account</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_events"><a class="anchor" href="#_events"></a>Events</h3>
+</div>
+<div class="sect1">
+<h2 id="events"><a class="anchor" href="#events"></a>Events</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Events are the system wide events, you can see each event regarding the events, e.g. is someone tried to login with wrong credentials and alot more. These details are important e.g. auditing or compliance usecases as well.</p>
 </div>
@@ -325,13 +477,15 @@ You can go to the following link to access your account.
 <p>Not only can Red Hat SSO save these events to be able to display them in the admin console and account management console, but you can develop your own event listener that can do what you want with the events.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_custom_code_and_flows"><a class="anchor" href="#_custom_code_and_flows"></a>Custom Code and Flows</h3>
+</div>
+<div class="sect1">
+<h2 id="custom-code"><a class="anchor" href="#custom-code"></a>Custom Code and Flows</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Red Hat SSO has a huge number of SPIs that allow you to develop your own custom providers. You can develop custom user stores, protocol mappers, authenticators, event listeners and a large number of other things. We have about 100 SPIs so you can customize a lot!</p>
 </div>
-<div class="sect3">
-<h4 id="_creating_and_adding_custom_code_to_rh_sso_stream"><a class="anchor" href="#_creating_and_adding_custom_code_to_rh_sso_stream"></a>Creating and Adding custom code to RH-SSO Stream</h4>
+<div class="sect2">
+<h3 id="add-custom-code"><a class="anchor" href="#add-custom-code"></a>Creating and Adding custom code to RH-SSO Stream</h3>
 <div class="paragraph">
 <p>We already have created some custom code for you to make use of.</p>
 </div>
@@ -368,7 +522,7 @@ cp ../../themes/target/themes.jar deployments/</code></pre>
 <p>So we have now built the jar files and copied them to our working directory from where we will build our custom RH-SSO image. You can always create the images in an openshift namespace, so that all users and applications have access to it. In our case we have chosen to keep this to our project namespace only.
 Remember to <code>replace evalsXX with your username</code> and also ensure you are in the <code>sso-custom/stream</code> directory before running the following commands.</p>
 </div>
-<div class="listingblock">
+<div id="custom-stream" class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash"># Create a new project
 oc new-project &lt;evalsXX&gt;-sso-custom-kubernetes-workshop
@@ -482,7 +636,7 @@ For example:</p>
 <pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">    &lt;script src="https://sso-workshop.apps.cph-c747.open.redhat.com/auth/js/keycloak.js"&gt;&lt;/script&gt;</code></pre>
 </div>
 </div>
-<div class="paragraph">
+<div id="deploy-js-app" class="paragraph">
 <p>Before starting make sure that you have Code Ready workspace <code>Terminal</code> open.
 - and also ensure that you have changed you directory too <code>js-console/src</code></p>
 </div>
@@ -646,8 +800,10 @@ Its quite commmon that users of Red Hat SSO would need to change the default flo
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_configuring_otp"><a class="anchor" href="#_configuring_otp"></a>Configuring OTP</h3>
+</div>
+<div class="sect1">
+<h2 id="configure-otp"><a class="anchor" href="#configure-otp"></a>Configuring OTP</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>&#8201;&#8212;&#8201;ADD OTP details and screenshot</p>
 </div>
@@ -679,11 +835,12 @@ Its quite commmon that users of Red Hat SSO would need to change the default flo
 <p>Open the JS Console and click Logout. Login again. After you&#8217;ve done the email based login you will be prompted to configure OTP. You&#8217;ll need Google Authenticator or FreeOTP on your phone to try this out.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_themes"><a class="anchor" href="#_themes"></a>Themes</h3>
+</div>
+<div class="sect1">
+<h2 id="themes"><a class="anchor" href="#themes"></a>Themes</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>We didnt cover details on the Themes in this section, but you should now be able to change the theme in the realm settings. The new theme is for the login page only and should be called <code>sunrise</code>. Try it out!</p>
-</div>
 </div>
 <div class="sect2">
 <h3 id="_achievement_unlocked"><a class="anchor" href="#_achievement_unlocked"></a>Achievement unlocked!</h3>
@@ -691,8 +848,10 @@ Its quite commmon that users of Red Hat SSO would need to change the default flo
 <p>Congratulations in this section you have been able to customzie Red Hat SSO with Themes, OTP integration, changing keys, and adding custom code like the magic link. Now you are almost ready for the real world deployment. Lets head off to the next section where we will create our first Spring greeting service and secure it with Red Hat SSO.</p>
 </div>
 </div>
+</div>
+</div>
 <nav class="pagination">
-  <span class="prev"><a href="identityproviders.html">Identity providers</a></span>
+  <span class="prev"><a href="identityproviders.html#identity-providers">Identity providers</a></span>
   <span class="next"><a href="conclusion.html">You made it!</a></span>
 </nav>
 </article>

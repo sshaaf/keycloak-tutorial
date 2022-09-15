@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Untitled :: Keycloak workshop</title>
     <link rel="canonical" href="https://redhat-scholars.github.io/course-template/template-tutorial/openidconnect.html">
-    <link rel="prev" href="firstapp.html">
-    <link rel="next" href="usergroups.html">
+    <link rel="prev" href="firstapp.html#firstapp">
+    <link rel="next" href="usergroups.html#usergroups">
     <meta name="generator" content="Antora 3.0.0">
     <link rel="stylesheet" href="../_/css/site.css">
   </head>
@@ -58,28 +58,175 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="settingup.html#prerequisite">Prerequisites</a>
   </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="settingup.html#wsenvironment">Environment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="settingup.html#idesetup">IDE setup</a>
+  </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
     <a class="nav-link" href="keycloak.html#RH-SSO">Red Hat Single Sign-On</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="keycloak.html#ocptemplates">Openshift templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="keycloak.html#ssoinstall">SSO Installation</a>
+  </li>
+</ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="configuration.html">Server Setup</a>
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="configuration.html#server-setup">Server Setup</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="configuration.html#what-is-realm">What is a realm</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="configuration.html#master-realm">Master realm</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="configuration.html#email-integration">Email integration</a>
+  </li>
+</ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="firstapp.html">Secure your first app</a>
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="firstapp.html#firstapp">Secure your first app</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="firstapp.html#openshift-architecture">OpenShift architecture</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="1">
-    <a class="nav-link" href="openidconnect.html">Open ID Connect</a>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="firstapp.html#openshift-primitives">Primitives</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="firstapp.html#openshift-pod">Pod</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="firstapp.html#openshift-labels">Labels and selectors</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="firstapp.html#openshift-controller">Replication controller</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="firstapp.html#openshift-builds">Builds and images</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="firstapp.html#openshift-services">Services</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="firstapp.html#openshift-routes">Routes</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="firstapp.html#firstapp-project">Project and deployment</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="firstapp.html#firstapp-authentication">Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="firstapp.html#firstapp-deployment">Deployment</a>
+  </li>
+</ul>
+  </li>
+</ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="usergroups.html">Users and groups</a>
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#openid-connect">Open ID Connect</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#openid-saml-comparison">OIDC and SAML</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#openid-accesstokens">Access tokens</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#openid-idtokens">ID tokens</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#openid-claims">Claims</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#openid-client-scopes">Client scopes</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#openid-consent">Consent</a>
+  </li>
+</ul>
+  </li>
+</ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="identityproviders.html">Identity providers</a>
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="usergroups.html#usergroups">Users and groups</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="usergroups.html#create-role">Create role</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="usergroups.html#create-group">Create group</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="usergroups.html#user-federation">User federation</a>
+  </li>
+</ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="advanceconfig.html">More customization</a>
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="identityproviders.html#identity-providers">Identity providers</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="identityproviders.html#oauth-oauth2">OAUTH and OAUTH2</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="identityproviders.html#github-integration">Users from Github</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="advanceconfig.html#advance-config">More customization</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanceconfig.html#keys-signing">Keys and signing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanceconfig.html#sessions">Sessions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanceconfig.html#events">Events</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="advanceconfig.html#custom-code">Custom code and flows</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="advanceconfig.html#add-custom-code">Add custom code</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="advanceconfig.html#custom-stream">Create stream</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="advanceconfig.html#deploy-js-app">Re-deploy App</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanceconfig.html#configure-otp">Configuring OTP</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanceconfig.html#themes">Themes</a>
+  </li>
+</ul>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="conclusion.html">You made it!</a>
@@ -102,14 +249,14 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">Keyckoak workshop - Getting started</a></li>
-    <li><a href="openidconnect.html">Open ID Connect</a></li>
+    <li><a href="#openid-connect">Open ID Connect</a></li>
   </ul>
 </nav>
   <div class="edit-this-page"><a href="https://github.com/sshaaf/keycloak-workshop/edit/master/documentation/modules/ROOT/pages/openidconnect.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <article class="doc">
-<div class="paragraph">
+<div id="openid-connect" class="paragraph">
 <p>OpenID Connect (OIDC) is an authentication protocol that is an extension of OAuth 2.0. While OAuth 2.0 is only a framework for building authorization protocols and is mainly incomplete, OIDC is a full-fledged authentication and authorization protocol. OIDC also makes heavy use of the Json Web Token (JWT) set of standards. These standards define an identity token JSON format and ways to digitally sign and encrypt that data in a compact and web-friendly way.</p>
 </div>
 <div class="paragraph">
@@ -119,34 +266,37 @@
 <p>The second type of use cases is that of a client that wants to gain access to remote services. In this case, the client asks Red Hat SSO to obtain an access token it can use to invoke on other remote services on behalf of the user. Red Hat SSO authenticates the user then asks the user for consent to grant access to the client requesting it. The client then receives the access token. This access token is digitally signed by the realm. The client can make REST invocations on remote services using this access token. The REST service extracts the access token, verifies the signature of the token, then decides based on access information within the token whether or not to process the request</p>
 </div>
 <div class="sect2">
-<h3 id="_open_id_connect_and_saml_comparision"><a class="anchor" href="#_open_id_connect_and_saml_comparision"></a>Open ID Connect and SAML Comparision</h3>
+<h3 id="openid-saml-comparison"><a class="anchor" href="#openid-saml-comparison"></a>Open ID Connect and SAML Comparision</h3>
 <div class="paragraph">
-<p>Choosing between OpenID Connect and SAML is not just a matter of using a newer protocol (OIDC) instead of the older more mature protocol (SAML).
-In most cases OIDC is recommended. Beyond verbosity of exchanged data, if you compare the specifications you’ll find that OIDC was designed to work with the web while SAML was retrofitted to work on top of the web. For example, OIDC is also more suited for HTML5/JavaScript applications because it is easier to implement on the client side than SAML. As tokens are in the JSON format, they are easier to consume by JavaScript. You will also find several nice features that make implementing security in your web applications easier. For example, check out the iframe trick that the specification uses to easily determine if a user is still logged in or not.</p>
+<p>Choosing between OpenID Connect and SAML is not just a matter of using a newer protocol (OIDC) instead of the older more mature protocol (SAML).</p>
+</div>
+<div class="paragraph">
+<p>In most cases OIDC is recommended. Beyond verbosity of exchanged data, if you compare the specifications you’ll find that OIDC was designed to work with the web while SAML was retrofitted to work on top of the web. For example, OIDC is also more suited for HTML5/JavaScript applications because it is easier to implement on the client side than SAML. As tokens are in the JSON format, they are easier to consume by JavaScript. You will also find several nice features that make implementing security in your web applications easier. For example, check out the iframe trick that the specification uses to easily determine if a user is still logged in or not.</p>
 </div>
 <div class="paragraph">
 <p>SAML has its uses though. As you see the OIDC specifications evolve you see they implement more and more features that SAML has had for years. What we often see is that people pick SAML over OIDC because of the perception that it is more mature and also because they already have existing applications that are secured with it. Moreover quite alot of legacy applications are using SAML out there. Hence its important to note that Red Hat SSO also supports SAML</p>
 </div>
-<div class="sect3">
-<h4 id="_access_tokens"><a class="anchor" href="#_access_tokens"></a>Access Tokens</h4>
+</div>
+<div class="sect2">
+<h3 id="openid-accesstokens"><a class="anchor" href="#openid-accesstokens"></a>Access Tokens</h3>
 <div class="paragraph">
 <p>Access Tokens are used by an application to access an API. Access Tokens can be an opaque string, JWT, or non-JWT token. Its purpose is to inform the API that the bearer of this token has been granted delegated access to the API and request specific actions</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_id_tokens"><a class="anchor" href="#_id_tokens"></a>ID Tokens</h4>
+<div class="sect2">
+<h3 id="openid-idtokens"><a class="anchor" href="#openid-idtokens"></a>ID Tokens</h3>
 <div class="paragraph">
 <p>The ID Token is a JWT (JSON Web Token) which contains user identity data e.g. user information like the user&#8217;s name, email etc, typically used for UI display. ID Tokens conform (IETF RFC 7519) and contain three parts: a header, a body and a signature. JWT Tokens also contain claims, which are statements (such as name or email address) about an entity (typically, the user) or additional metadata.</p>
 </div>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_adding_claims_to_the_tokens"><a class="anchor" href="#_adding_claims_to_the_tokens"></a>Adding claims to the tokens</h3>
+<div class="sect1">
+<h2 id="openid-claims"><a class="anchor" href="#openid-claims"></a>Adding claims to the tokens</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>In the previous section we created a Client and secured our app.</p>
 </div>
-<div class="sect3">
-<h4 id="_what_are_client_scopes"><a class="anchor" href="#_what_are_client_scopes"></a>What are Client Scopes?</h4>
+<div class="sect2">
+<h3 id="openid-client-scopes"><a class="anchor" href="#openid-client-scopes"></a>What are Client Scopes?</h3>
 <div class="paragraph">
 <p>If you have many applications you need to secure and register within your organization, it can become tedious to configure the protocol mappers and role scope mappings for each of these clients. Red Hat SSO allows you to define a shared client configuration in an entity called a client scope.</p>
 </div>
@@ -275,8 +425,10 @@ Claim JSON Type: String</pre>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_requiring_consent"><a class="anchor" href="#_requiring_consent"></a>Requiring Consent</h3>
+</div>
+<div class="sect1">
+<h2 id="openid-consent"><a class="anchor" href="#openid-consent"></a>Requiring Consent</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>So far we&#8217;ve assumed the JS Console is an internal trusted application, but what if it&#8217;s a third party external application? In that case we probably want the user to grant access to what the application wants to have access to.</p>
 </div>
@@ -346,9 +498,10 @@ e.g. <a href="https://sso-evals01-sso-kubernetes-workshop.apps.cph-5a34.open.red
 <p>Lets move on the next section and get into some more details.</p>
 </div>
 </div>
+</div>
 <nav class="pagination">
-  <span class="prev"><a href="firstapp.html">Secure your first app</a></span>
-  <span class="next"><a href="usergroups.html">Users and groups</a></span>
+  <span class="prev"><a href="firstapp.html#firstapp">Secure your first app</a></span>
+  <span class="next"><a href="usergroups.html#usergroups">Users and groups</a></span>
 </nav>
 </article>
 <aside class="toc sidebar" data-title="Contents" data-levels="2">

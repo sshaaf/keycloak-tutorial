@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Untitled :: Keycloak workshop</title>
     <link rel="canonical" href="https://redhat-scholars.github.io/course-template/template-tutorial/firstapp.html">
-    <link rel="prev" href="configuration.html">
-    <link rel="next" href="openidconnect.html">
+    <link rel="prev" href="configuration.html#server-setup">
+    <link rel="next" href="openidconnect.html#openid-connect">
     <meta name="generator" content="Antora 3.0.0">
     <link rel="stylesheet" href="../_/css/site.css">
   </head>
@@ -58,28 +58,175 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="settingup.html#prerequisite">Prerequisites</a>
   </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="settingup.html#wsenvironment">Environment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="settingup.html#idesetup">IDE setup</a>
+  </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
     <a class="nav-link" href="keycloak.html#RH-SSO">Red Hat Single Sign-On</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="keycloak.html#ocptemplates">Openshift templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="keycloak.html#ssoinstall">SSO Installation</a>
+  </li>
+</ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="configuration.html">Server Setup</a>
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="configuration.html#server-setup">Server Setup</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="configuration.html#what-is-realm">What is a realm</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="1">
-    <a class="nav-link" href="firstapp.html">Secure your first app</a>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="configuration.html#master-realm">Master realm</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="configuration.html#email-integration">Email integration</a>
+  </li>
+</ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="openidconnect.html">Open ID Connect</a>
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#firstapp">Secure your first app</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#openshift-architecture">OpenShift architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#openshift-primitives">Primitives</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#openshift-pod">Pod</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#openshift-labels">Labels and selectors</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#openshift-controller">Replication controller</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#openshift-builds">Builds and images</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#openshift-services">Services</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#openshift-routes">Routes</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#firstapp-project">Project and deployment</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#firstapp-authentication">Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#firstapp-deployment">Deployment</a>
+  </li>
+</ul>
+  </li>
+</ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="usergroups.html">Users and groups</a>
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="openidconnect.html#openid-connect">Open ID Connect</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="openidconnect.html#openid-saml-comparison">OIDC and SAML</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="openidconnect.html#openid-accesstokens">Access tokens</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="openidconnect.html#openid-idtokens">ID tokens</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="openidconnect.html#openid-claims">Claims</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="openidconnect.html#openid-client-scopes">Client scopes</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="openidconnect.html#openid-consent">Consent</a>
+  </li>
+</ul>
+  </li>
+</ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="identityproviders.html">Identity providers</a>
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="usergroups.html#usergroups">Users and groups</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="usergroups.html#create-role">Create role</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="usergroups.html#create-group">Create group</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="usergroups.html#user-federation">User federation</a>
+  </li>
+</ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="advanceconfig.html">More customization</a>
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="identityproviders.html#identity-providers">Identity providers</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="identityproviders.html#oauth-oauth2">OAUTH and OAUTH2</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="identityproviders.html#github-integration">Users from Github</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="advanceconfig.html#advance-config">More customization</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanceconfig.html#keys-signing">Keys and signing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanceconfig.html#sessions">Sessions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanceconfig.html#events">Events</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="advanceconfig.html#custom-code">Custom code and flows</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="advanceconfig.html#add-custom-code">Add custom code</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="advanceconfig.html#custom-stream">Create stream</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="advanceconfig.html#deploy-js-app">Re-deploy App</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanceconfig.html#configure-otp">Configuring OTP</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanceconfig.html#themes">Themes</a>
+  </li>
+</ul>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="conclusion.html">You made it!</a>
@@ -102,14 +249,14 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">Keyckoak workshop - Getting started</a></li>
-    <li><a href="firstapp.html">Secure your first app</a></li>
+    <li><a href="#firstapp">Secure your first app</a></li>
   </ul>
 </nav>
   <div class="edit-this-page"><a href="https://github.com/sshaaf/keycloak-workshop/edit/master/documentation/modules/ROOT/pages/firstapp.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <article class="doc">
-<div class="paragraph">
+<div id="firstapp" class="paragraph">
 <p>Following a microservice approach will help you increase your <em>agility</em>. However, it does not come for free and
 requires a lot of discipline. It also stresses your deployment facilities. When the number of microservices grows, it
 very quickly becomes an issue to keep your system on track.</p>
@@ -121,15 +268,16 @@ need a container platform. That&#8217;s what Kubernetes is. Kubernetes defines a
 collectively provide mechanisms for deploying, maintaining, and scaling applications packaged inside containers. OpenShift
  <em>extends</em> Kubernetes with build automation and a routing system, while inheriting all the primitives from Kubernetes.</p>
 </div>
-<div class="imageblock">
+<div id="openshift-architecture" class="imageblock">
 <div class="content">
 <img src="_images/openshift-architecture.png" alt="OpenShift Architecture" width="800">
 </div>
 </div>
+<div class="sect1">
+<h2 id="openshift-primitives"><a class="anchor" href="#openshift-primitives"></a>Primitives</h2>
+<div class="sectionbody">
 <div class="sect2">
-<h3 id="_primitives"><a class="anchor" href="#_primitives"></a>Primitives</h3>
-<div class="sect3">
-<h4 id="_pod"><a class="anchor" href="#_pod"></a>Pod</h4>
+<h3 id="openshift-pod"><a class="anchor" href="#openshift-pod"></a>Pod</h3>
 <div class="paragraph">
 <p>The basic scheduling unit in Kubernetes is called a <em>pod</em>. It adds a higher level of abstraction to containerized components.
 A pod consists of one or more containers that are guaranteed to be co-located on the host machine and can share resources.
@@ -139,8 +287,8 @@ Each pod in Kubernetes is assigned a unique (within the cluster) IP address, whi
  delegated to a controller.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_labels_and_selectors"><a class="anchor" href="#_labels_and_selectors"></a>Labels and Selectors</h4>
+<div class="sect2">
+<h3 id="openshift-labels"><a class="anchor" href="#openshift-labels"></a>Labels and Selectors</h3>
 <div class="paragraph">
 <p>Kubernetes enables clients (users or internal components) to attach key-value pairs called <em>labels</em> to any API object
  in the system, such as pods. Correspondingly, <em>label selectors</em> are queries against labels that resolve to matching
@@ -148,8 +296,8 @@ Each pod in Kubernetes is assigned a unique (within the cluster) IP address, whi
  to which an operation applies. Labels and selectors are used to group entities together.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_replication_controller_and_deployment"><a class="anchor" href="#_replication_controller_and_deployment"></a>Replication Controller and Deployment</h4>
+<div class="sect2">
+<h3 id="openshift-controller"><a class="anchor" href="#openshift-controller"></a>Replication Controller and Deployment</h3>
 <div class="paragraph">
 <p>Controllers are entities managing other entities in order to keep them in a specific state. For instance, a
 replication controller has the responsibility to keep alive <em>x</em> replicas of a pod. When one of these replicas dies or
@@ -185,8 +333,8 @@ ready. Then, it routes requests to this new pod and dispose the old one.  Other 
 <em>blue-green</em>, <em>A/B</em>, and the ability to create a custom strategy.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_build_and_image"><a class="anchor" href="#_build_and_image"></a>Build and Image</h4>
+<div class="sect2">
+<h3 id="openshift-builds"><a class="anchor" href="#openshift-builds"></a>Build and Image</h3>
 <div class="paragraph">
 <p>As stated in the previous section, <code>deployments</code> are responsible for keeping the application running. But we need to
 provide the application first. The application is pushed to OpenShift as an (container) <em>image</em>. This image is
@@ -210,8 +358,8 @@ This build creates an image for starting the application.</p>
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_services"><a class="anchor" href="#_services"></a>Services</h4>
+<div class="sect2">
+<h3 id="openshift-services"><a class="anchor" href="#openshift-services"></a>Services</h3>
 <div class="paragraph">
 <p>Ok, so we know how our application is going to be <em>built</em> and instantiated on OpenShift. But how are we going to use
 it? For this we need <em>services</em>. A <em>service</em> identifies a set of pods (using labels) in order to proxy the connections
@@ -228,8 +376,8 @@ uses a label selector to find all the containers running that provide a certain 
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_routes"><a class="anchor" href="#_routes"></a>Routes</h4>
+<div class="sect2">
+<h3 id="openshift-routes"><a class="anchor" href="#openshift-routes"></a>Routes</h3>
 <div class="paragraph">
 <p><em>Routes</em> are the last concept to understand before starting to use OpenShift. Services provides an internal IP.
 Routes exposes a service outside of OpenShift. A route allows you to associate a service with an externally-reachable
@@ -245,10 +393,12 @@ Routes exposes a service outside of OpenShift. A route allows you to associate a
 </div>
 </div>
 </div>
+</div>
+<div class="sect1">
+<h2 id="firstapp-project"><a class="anchor" href="#firstapp-project"></a>Your first project and deployment</h2>
+<div class="sectionbody">
 <div class="sect2">
-<h3 id="_your_first_project_and_deployment"><a class="anchor" href="#_your_first_project_and_deployment"></a>Your first project and deployment</h3>
-<div class="sect3">
-<h4 id="_java_script_client_adapter"><a class="anchor" href="#_java_script_client_adapter"></a>Java Script Client Adapter</h4>
+<h3 id="_java_script_client_adapter"><a class="anchor" href="#_java_script_client_adapter"></a>Java Script Client Adapter</h3>
 <div class="paragraph">
 <p>RH-SSO comes with a client-side JavaScript library that can be used to secure HTML5/JavaScript applications. The <code>JavaScript adapter</code> has built-in support for Cordova applications.</p>
 </div>
@@ -265,9 +415,8 @@ Routes exposes a service outside of OpenShift. A route allows you to associate a
 <p>In the workshop source code, locate the <code>js-console</code> and navigate to the directory in your CodeReady workspace.</p>
 </div>
 </div>
-</div>
 <div class="sect2">
-<h3 id="_authentication_via_js"><a class="anchor" href="#_authentication_via_js"></a>Authentication via JS</h3>
+<h3 id="firstapp-authentication"><a class="anchor" href="#firstapp-authentication"></a>Authentication via JS</h3>
 <div class="paragraph">
 <p>By default to authenticate you need to call the login function.
 However, there are also two options available to make the adapter automatically authenticate. You can pass login-required or check-sso to the init function. login-required will authenticate the client if the user is logged-in to RH-SSO or display the login page if not. check-sso will only authenticate the client if the user is already logged-in, if the user is not logged-in the browser will be redirected back to the application and remain unauthenticated.</p>
@@ -366,7 +515,7 @@ We use the S2i (Source2Image) from Openshift and create a stream from our projec
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc expose svc/js-console</code></pre>
 </div>
 </div>
-<div class="imageblock">
+<div id="firstapp-deployment" class="imageblock">
 <div class="content">
 <img src="_images/openshift-first-deployment.png" alt="First deployment" width="1024">
 </div>
@@ -440,9 +589,11 @@ To get the route to your js-console you can run the following command.</p>
 <p>And it only get interesting from here on. This app is our basis for these excercises. Lets head off to the next section and what more can we do with OIDC.</p>
 </div>
 </div>
+</div>
+</div>
 <nav class="pagination">
-  <span class="prev"><a href="configuration.html">Server Setup</a></span>
-  <span class="next"><a href="openidconnect.html">Open ID Connect</a></span>
+  <span class="prev"><a href="configuration.html#server-setup">Server Setup</a></span>
+  <span class="next"><a href="openidconnect.html#openid-connect">Open ID Connect</a></span>
 </nav>
 </article>
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
