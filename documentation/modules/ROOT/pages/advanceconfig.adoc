@@ -157,40 +157,26 @@ Switch to this new project in your openshift console. the rest of the guide assu
 
 You can now also run `oc get imagestreams` which should render a similar output as follows.
 Notice that we have named our custom image as `custom-sso73-openshift`. 
+
 [source,bash,subs="+macros,+attributes"]
 ----
-custom-sso73-openshift  docker-registry.default.svc:5000/<evalsXX>-sso-kubernetes-workshop/custom-sso73-openshift   
+custom-sso73-openshift  docker-registry.default.svc:5000/.../custom-sso73-openshift   
 ----
 
 Now that have the image ready to be deplyed we need to take one last step.
-Open up the template.json in the `sso-custom/stream` directory
+Lets change the imageStream for the current SSO deployment. To do that, edit the Deployment Config of our deployed SSO. and change the image as follows and save.
 
-in the trigger section you will see something as follows
-[source, json]
+image::sso_changeImageStream.png[Events]
+
+
+This will trigger a kill of the current pod and deploy a new one with our imageStream. In the logs you should be able to see our deployed artifacts.
+[source,bash,subs="+macros,+attributes"]
 ----
-                            "from": {
-                                "kind": "ImageStreamTag",
-                                "namespace": "evalsXX-sso-custom-kubernetes-workshop",
-                                "name": "custom-sso73-openshift:latest"
-                            }
-
+INFO [org.keycloak.subsystem.server.extension.KeycloakProviderDeploymentProcessor] (MSC service thread 1-2) Deploying Keycloak provider: themes.jar
+INFO [org.keycloak.subsystem.server.extension.KeycloakProviderDeploymentProcessor] (MSC service thread 1-1) Deploying Keycloak provider: token-validation.jar
+17:12:31,083 INFO [org.keycloak.subsystem.server.extension.KeycloakProviderDeploymentProcessor] (MSC service thread 1-1) Deploying Keycloak provider: magic-link.jar
 ----
-Remember to `replace evalsXX with your username`
-Ensure that you can change the namespace to your new project. which should be `<evalsXX>-sso-custom-kubernetes-workshop`
 
-<1> Copy the contents of the template file
-
-<2> Goto the openshift console and press the add to project button and then Import YAML/JSON
-
-image::openshift-addtoproject.png[Events]
-
-<3> Paste the content and press next.
-
-image::openshift-templatecopy.png[Events]
-
-<4> remmember to key in the admin username and password and press create.
-
-Openshift will deploy our new custom instance of Red Hat SSO. 
 Lets wait for it to be deployed successfully. 
 
 While openshift is deploying, lets also deploy our JS Console. 
