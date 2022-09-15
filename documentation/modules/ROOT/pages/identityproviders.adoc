@@ -1,3 +1,4 @@
+[#identity-providers]
 == Identity providers
 An Identity Broker is an intermediary service that connects multiple service providers with different identity providers. As an intermediary service, the identity broker is responsible for creating a trust relationship with an external identity provider in order to use its identities to access internal services exposed by service providers. 
 
@@ -30,13 +31,14 @@ image::identity_broker_flow.png[Identity brokering]
 
 
 
-
-=== OAUTH and OAUTH2
+[#oauth-oauth2]
+== OAUTH and OAUTH2
 Lets say you are running an e-commerce shop online. And today you have a couple of million users. Business is growing. Now you are being approached by third-party application developers to integrate with your services; Lets assume they are running a chat service or a gaming platform, they would like to provide services to your customer and thiers. Also bringing in new business. How can we handle such an integration?
 
 OAuth is a way to get access to protected data from an application. It's safer and more secure than asking users to log in with passwords. OAuth will also allow developers to securely get the user data. So is OAuth an Authentication mechanism? No its not. OAuth provides the framework to securely access that data. So OAuth asks for a token and gets it. For Authentication you would use Open ID Connect or SAML etc. So rather then sharing passwords between services OAuth is te protocol that helps brings the whole RESTful web together. Similar to when one uses Google or Githhub login to use other services from like e.g. Red Hat developer
 
-=== Users from Github
+[#Github-integration]
+== Users from Github
 Now that we have users in Red Hat SSO as well as loading users from LDAP let's get users from an external Identity Provider. For simplicity we'll use GitHub, but the same approach works for a corporate identity provider and other social networks.
 
 - Open the Red Hat SSO Admin Console.

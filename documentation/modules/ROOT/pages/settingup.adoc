@@ -1,5 +1,7 @@
+[#Setup]
 Before we start the lab, its important that you read the following instructions carefully. These instructions will be refered from the rest of the content if you need to come back to them.
 
+[#prerequisite]
 == First Step: Create a Developer sandbox account
 
 All the labs are using the Red Hat OpenShift Sandbox. 
@@ -38,6 +40,7 @@ There are also Linux shell commands that can also be copied and pasted into a Te
 echo "This is a bash shell command that you can copy/paste by clicking"
 ----
 
+[#wsenvironment]
 == The Workshop Environment You Are Using
 
 Your workshop environment consists of several components which have been pre-installed and are ready to use. Depending on which parts of the workshop you’re doing, you will use one or more of:
@@ -46,7 +49,7 @@ Your workshop environment consists of several components which have been pre-ins
 * https://developers.redhat.com/products/openshift-dev-spaces/overview[Red Hat OpenShift Dev Spaces,window=_blank] - Built on the open Eclipse Che project, Red Hat OpenShift Dev Spaces uses Kubernetes and containers to provide any member of the development or IT team with a consistent, secure, and zero-configuration development environment. The experience is as fast and familiar as an integrated development environment on your laptop. OpenShift Dev Spaces is included with your OpenShift subscription and is available in the Operator Hub. It provides development teams a faster and more reliable foundation on which to work, and it gives operations centralized control and peace of mind.
 * https://www.redhat.com/en/products/runtimes[Red Hat Runtimes, window=_blank] - a collection of cloud-native runtimes and platform that enables Spring Boot, Node.js, and https://quarkus.io[Quarkus, window=_blank] developers to create Cloud-native apps with ease.
 
-
+[#idesetup]
 == How to complete this workshop
 
 Click the "Next >" button at the bottom to advance to the next topic. You can also use the menu on the left to move around the instructions at will.
