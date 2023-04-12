@@ -10,7 +10,7 @@ Keycloak is an open source Identity and Access Management solution aimed at mode
 This page gives a brief introduction to RH-SSO and Keycloak and some of the features. For a full list of features refer to the https://access.redhat.com/documentation/en-us/red_hat_single_sign-on/7.3/[documentation]
 
 
-Trying RH-SSO is quick and easy. And we will take a deep dive into RH-SSO in this workshop. But first; What is RH-SSO?
+Trying RH-SSO is quick and easy. And we will take a deep dive into RH-SSO in this tutorial. But first; What is RH-SSO?
 
 === Single-Sign On
 

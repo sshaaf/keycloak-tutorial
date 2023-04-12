@@ -113,7 +113,7 @@ We also have a keycloak.json file that we also use to configure our application.
 
 Alternatively you can also choose to place the json file in a different location and also load the js files manually in your code. In our case we take a simplified approach by taking he js file directly from the server and our keycloak.json file is in the root. (not in the root of our current project, but will be in root of our app when we deploy it.)
 
-In the workshop source code, locate the `js-console` and navigate to the directory in your CodeReady workspace.
+In the tutorial source code, locate the `js-console` and navigate to the directory in your CodeReady workspace.
 
 [#firstapp-authentication]
 === Authentication via JS
@@ -129,7 +129,7 @@ e.g. in my case it looks something like this:
 ```
 > oc get route sso
 NAME   HOST/PORT                                        PATH   SERVICES   
-sso    sso-workshop.apps.cph-c747.open.redhat.com       sso        <all>
+sso    sso-tutorial.apps.cph-c747.open.redhat.com       sso        <all>
 ```
 
 or just copy it from your browser, ensure you copy the protocol also e.g. 'https://...'
@@ -152,7 +152,7 @@ And replace the SERVER_URL in the <header> <src>
 For example:
 ```
 
-    <script src="https://sso-workshop.apps.cph-c747.open.redhat.com/auth/js/keycloak.js"></script>
+    <script src="https://sso-tutorial.apps.cph-c747.open.redhat.com/auth/js/keycloak.js"></script>
 
 ```
 
@@ -211,7 +211,7 @@ To get the route to your js-console you can run the following command.
 oc get route js-console
 ----
 
-Fill in the details on the form (e.g. in below screenshot) and press save. Ensure you use protocol 'http://' with your route e.g. 'http://js-console-evals01-sso-kubernetes-workshop.apps.cph-5a34.open.redhat.com'(An example shown in the following screenshot)
+Fill in the details on the form (e.g. in below screenshot) and press save. Ensure you use protocol 'http://' with your route e.g. 'http://js-console-evals01-sso-kubernetes-tutorial.apps.cph-5a34.open.redhat.com'(An example shown in the following screenshot)
 
 image::sso_adminclientconfig.png[Realm Client settings]
 

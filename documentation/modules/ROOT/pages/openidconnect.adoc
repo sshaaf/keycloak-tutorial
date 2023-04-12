@@ -114,7 +114,7 @@ image::sso_adminuserconsent.png[User Consent]
 Lets say if the user didnt want to consent any longer. They could goto to the accounts page and remove the consent. 
 
 Hit the account portal url e.g. <SERVER_URL>/auth/realms/demojs/account
-e.g. https://sso-evals01-sso-kubernetes-workshop.apps.cph-5a34.open.redhat.com/auth/realms/demojs/account
+e.g. https://sso-evals01-sso-kubernetes-tutorial.apps.cph-5a34.open.redhat.com/auth/realms/demojs/account
 
 You can press the `Revoke Grant` and premissions will be removed.
 

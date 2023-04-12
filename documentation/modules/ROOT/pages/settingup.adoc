@@ -39,11 +39,11 @@ echo "This is a bash shell command that you can copy/paste"
 ----
 
 [#wsenvironment]
-== The Workshop Environment You Are Using
+== The tutorial Environment You Are Using
 
-Your workshop environment consists of several components which have been pre-installed and are ready to use. Depending on which parts of the workshop you’re doing, you will use one or more of:
+Your tutorial environment consists of several components which have been pre-installed and are ready to use. Depending on which parts of the tutorial you’re doing, you will use one or more of:
 
-* https://www.openshift.com/[Red Hat OpenShift,window=_blank] - You’ll use one or more *projects* (Kubernetes namespaces) that are your own and are isolated from other workshop students
+* https://www.openshift.com/[Red Hat OpenShift,window=_blank] - You’ll use one or more *projects* (Kubernetes namespaces) that are your own and are isolated from other tutorial students
 * https://developers.redhat.com/products/openshift-dev-spaces/overview[Red Hat OpenShift Dev Spaces,window=_blank] - Built on the open Eclipse Che project, Red Hat OpenShift Dev Spaces uses Kubernetes and containers to provide any member of the development or IT team with a consistent, secure, and zero-configuration development environment. The experience is as fast and familiar as an integrated development environment on your laptop. OpenShift Dev Spaces is included with your OpenShift subscription and is available in the Operator Hub. It provides development teams a faster and more reliable foundation on which to work, and it gives operations centralized control and peace of mind.
 * https://www.redhat.com/en/products/runtimes[Red Hat Runtimes, window=_blank] - a collection of cloud-native runtimes and platform that enables Spring Boot, Node.js, and https://quarkus.io[Quarkus, window=_blank] developers to create Cloud-native apps with ease.
 
@@ -61,16 +61,16 @@ The already created stack and the source code for the labs exists on the followi
 
 [source,sh,role="copypaste"]
 ----
-https://github.com/RedHat-Middleware-Workshops/sso-workshop.git
+https://github.com/RedHat-Middleware-tutorials/sso-tutorial.git
 ----
 
 Copy the above link to the 'Git Repo URL' and press create and open. This should start loading and installing your stack. It can take a couple of minutes so let it run in the browser tab.
 
 image::che_createandopen.png[Create and Open workspace]
 
-Perfect, now you should have an IDE setup. Lets move on to the workshop.
+Perfect, now you should have an IDE setup. Lets move on to the tutorial.
 
-== How to complete this workshop
+== How to complete this tutorial
 
 Click the "Next >" button at the bottom to advance to the next topic. You can also use the menu on the left to move around the instructions at will.
 

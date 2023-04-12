@@ -1,6 +1,6 @@
 == Conclusion
 
-Achievment unlocked, you made it! Congratulations. We hope you enjoyed the labs and learnt alot more about Red Hat SSO and Keycloak and how to leverage it in a Cloud native and microservices world. There is alot more to Red Hat SSO and that was not illustrated in this workshop.
+Achievment unlocked, you made it! Congratulations. We hope you enjoyed the labs and learnt alot more about Red Hat SSO and Keycloak and how to leverage it in a Cloud native and microservices world. There is alot more to Red Hat SSO and that was not illustrated in this tutorial.
 
 === Clustering and Caching
 

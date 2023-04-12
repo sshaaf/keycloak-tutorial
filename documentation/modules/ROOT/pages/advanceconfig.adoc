@@ -118,7 +118,7 @@ We already have created some custom code for you to make use of.
 - Themes is also a custom theme for the system. 
 
 Lets build the two projects. Goto your code ready terminal and navigate to these projects. 
-Ensure you are in the root directory e.g. sso-kubernetes-workshop. 
+Ensure you are in the root directory e.g. sso-kubernetes-tutorial. 
 
 [source,bash,subs="+macros,+attributes"]
 ----
@@ -144,7 +144,7 @@ Remember to `replace evalsXX with your username` and also ensure you are in the 
 ----
 
 # Create a new project
-oc new-project <evalsXX>-sso-custom-kubernetes-workshop
+oc new-project <evalsXX>-sso-custom-kubernetes-tutorial
 
 # Create a build directive with Red Hat SSO official image stream.
 oc new-build --name custom-sso73-openshift --binary --strategy source --image-stream redhat-sso73-openshift:1.0
@@ -199,7 +199,7 @@ And replace the SERVER_URL in the <header> <src>
 For example:
 ```
 
-    <script src="https://sso-workshop.apps.cph-c747.open.redhat.com/auth/js/keycloak.js"></script>
+    <script src="https://sso-tutorial.apps.cph-c747.open.redhat.com/auth/js/keycloak.js"></script>
 
 ```
 
@@ -253,7 +253,7 @@ Make sure that you have configured email as described in the earlier section on 
 
 <2> Also create a test user account for the realm.
 
-<3> Also fill in the details on the form (e.g. in below screenshot) and press save. Ensure you use protocol with your route e.g. 'http://js-console-evals01-custom-sso-kubernetes-workshop.apps.cph-5a34.open.redhat.com'(An example shown in the following screenshot)
+<3> Also fill in the details on the form (e.g. in below screenshot) and press save. Ensure you use protocol with your route e.g. 'http://js-console-evals01-custom-sso-kubernetes-tutorial.apps.cph-5a34.open.redhat.com'(An example shown in the following screenshot)
 
 image::sso_adminclientconfig.png[Realm Client settings]
 
