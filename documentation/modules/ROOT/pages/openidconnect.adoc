@@ -6,7 +6,7 @@ There are really two types of use cases when using OIDC. The first is an applica
 The second type of use cases is that of a client that wants to gain access to remote services. In this case, the client asks Red Hat SSO to obtain an access token it can use to invoke on other remote services on behalf of the user. Red Hat SSO authenticates the user then asks the user for consent to grant access to the client requesting it. The client then receives the access token. This access token is digitally signed by the realm. The client can make REST invocations on remote services using this access token. The REST service extracts the access token, verifies the signature of the token, then decides based on access information within the token whether or not to process the request
 
 [#openid-saml-comparison]
-=== Open ID Connect and SAML Comparision
+== Open ID Connect and SAML Comparision
 Choosing between OpenID Connect and SAML is not just a matter of using a newer protocol (OIDC) instead of the older more mature protocol (SAML).
 
 In most cases OIDC is recommended. Beyond verbosity of exchanged data, if you compare the specifications you’ll find that OIDC was designed to work with the web while SAML was retrofitted to work on top of the web. For example, OIDC is also more suited for HTML5/JavaScript applications because it is easier to implement on the client side than SAML. As tokens are in the JSON format, they are easier to consume by JavaScript. You will also find several nice features that make implementing security in your web applications easier. For example, check out the iframe trick that the specification uses to easily determine if a user is still logged in or not.
@@ -14,11 +14,11 @@ In most cases OIDC is recommended. Beyond verbosity of exchanged data, if you co
 SAML has its uses though. As you see the OIDC specifications evolve you see they implement more and more features that SAML has had for years. What we often see is that people pick SAML over OIDC because of the perception that it is more mature and also because they already have existing applications that are secured with it. Moreover quite alot of legacy applications are using SAML out there. Hence its important to note that Red Hat SSO also supports SAML
 
 [#openid-accesstokens]
-=== Access Tokens
+== Access Tokens
 Access Tokens are used by an application to access an API. Access Tokens can be an opaque string, JWT, or non-JWT token. Its purpose is to inform the API that the bearer of this token has been granted delegated access to the API and request specific actions 
 
 [#openid-idtokens]
-=== ID Tokens
+== ID Tokens
 The ID Token is a JWT (JSON Web Token) which contains user identity data e.g. user information like the user's name, email etc, typically used for UI display. ID Tokens conform (IETF RFC 7519) and contain three parts: a header, a body and a signature. JWT Tokens also contain claims, which are statements (such as name or email address) about an entity (typically, the user) or additional metadata.
 
 [#openid-claims]
@@ -37,17 +37,17 @@ What if your applications want to know something else about users? Say you want 
 
 Red Hat SSO makes it possible to add custom attributes to users as well as adding custom claims to tokens.
 
-<1> Ensure you are logged in as Admin
+*1.* Ensure you are logged in as Admin
 
-<2> Lets first open Users 
+*2.* Lets first open Users 
 
-<3> And then View all users
+*3.* And then View all users
 
-<4> Select the user you registered with earlier, and not the Admin user.
+*4.* Select the user you registered with earlier, and not the Admin user.
 
-<5> Click on attributes and add key avatar_url with value https://www.keycloak.org/resources/images/keycloak_logo_200px.svg. 
+*5.* Click on attributes and add key avatar_url with value https://www.keycloak.org/resources/images/keycloak_logo_200px.svg. 
 
-<6> Click Add followed by Save.
+*6.* Click Add followed by Save.
 
 Now Red Hat SSO knows the users avatar, but the application also needs access to this. We're going to add this through Client Scopes.
 
@@ -113,7 +113,7 @@ image::sso_adminuserconsent.png[User Consent]
 
 Lets say if the user didnt want to consent any longer. They could goto to the accounts page and remove the consent. 
 
-Hit the account portal url e.g. <SERVER_URL>/auth/realms/demojs/account
+Hit the account portal url e.g. *S.*RVER_URL>/auth/realms/demojs/account
 e.g. https://sso-evals01-sso-kubernetes-tutorial.apps.cph-5a34.open.redhat.com/auth/realms/demojs/account
 
 You can press the `Revoke Grant` and premissions will be removed.

@@ -3,8 +3,8 @@ runtime:
 
 site:
   title: Keycloak tutorial
-  url: https://redhat-scholars.github.io/course-template
-  start_page: template-tutorial::index.adoc
+  url: https://shaaf.dev/keycloak-tutorial
+  start_page: keycloak-tutorial::index.adoc
 
 content:
   sources:

@@ -4,7 +4,7 @@ Red Hat Single Sign-On is an integrated sign-on solution available as a Red Hat 
 Red Hat offers multiple OpenShift application templates utilizing the Red Hat Single Sign-On for OpenShift image version number 7.5.GA. 
 
 [#ocptemplates]
-=== What are OpenShift Templates?
+== What are OpenShift Templates?
 
 A template describes a set of objects that can be parameterized and processed to produce a list of objects for creation by OpenShift Container Platform. A template can be processed to create anything you have permission to create within a project, for example services, build configurations, and deployment configurations. A template may also define a set of labels to apply to every object defined in the template.
 
@@ -69,18 +69,18 @@ sso75-postgresql-persistent
 Lets try to install from a template
 But first we want to know the different parameters our template will use. Today we choose a persistent Postgresql backed SSO installation. 
 
-<1> Open the openshift console
+*1.* Open the openshift console
 
-<2> Click on the button `Add` in the right menu and then > 'Developer Catalog' > 'All services'
+*2.* Click on the button `Add` in the right menu and then > 'Developer Catalog' > 'All services'
 
-<3> search for `SSO`
+*3.* search for `SSO`
 
 
 image::openshift-sso_search.png[Search for SSO]
 
-<4> Select the following template `Red Hat Single Sign-On 7.5 on OpenJDK (Ephemeral)` by clicking on it.
+*4.* Select the following template `Red Hat Single Sign-On 7.5 on OpenJDK (Ephemeral)` by clicking on it.
 
-<5> 'Initiate Template'. This will bring you to the Configuration section. 
+*5.* 'Initiate Template'. This will bring you to the Configuration section. 
 All the fields in this section denote the parameters that can be added to this template. Take a look at all the diferent parameters. 
 For now we will only change the SSO Administrator username and password
 I have chosen 'admin/password' feel free to choose any, but make sure you remember them or note them, since we will be using them again. For the realm choose 'demojs' as shown in the image.

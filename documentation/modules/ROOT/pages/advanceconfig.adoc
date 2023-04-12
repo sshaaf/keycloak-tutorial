@@ -19,13 +19,13 @@ Let's first try to change the signing algorithm for the JS console client.
 
 First let's see what algorithm is currently in use. 
 
-<1> Open the JS Console, login, 
+*1.* Open the JS Console, login, 
 
-<2> then click on ID Token. 
+*2.* then click on ID Token. 
 
-<3> This will display a rather cryptic string, which is the encoded token. 
+*3.* This will display a rather cryptic string, which is the encoded token. 
 
-<4> Copy this value, making sure you select everything.
+*4.* Copy this value, making sure you select everything.
 
 In a different tab open the https://jwt.io/[JWT validation extension]. 
 
@@ -36,31 +36,31 @@ Great so that gives us details of the current token in use.
 
 Now let's change this to this to something new, maybe ES256.
 
-<1> Open the Red Hat SSO Admin Console in a new tab. 
+*1.* Open the Red Hat SSO Admin Console in a new tab. 
 
-<2> Ensure you keep the JS Console open as we want to show how it gets new tokens without having to re-login.
+*2.* Ensure you keep the JS Console open as we want to show how it gets new tokens without having to re-login.
 
-<3> Click on Clients and select the js-console client. 
+*3.* Click on Clients and select the js-console client. 
 
-<4> Under Fine Grained OpenID Connect Configuration switch Access Token Signature Algorithm and ID Token Signature Algorithm to ES256.
+*4.* Under Fine Grained OpenID Connect Configuration switch Access Token Signature Algorithm and ID Token Signature Algorithm to ES256.
 
-<5> Now go back to the JS Console and click on Refresh. This will use the Refresh Token to obtain new updated ID and Access tokens.
+*5.* Now go back to the JS Console and click on Refresh. This will use the Refresh Token to obtain new updated ID and Access tokens.
 
-<6> Click on ID Token, copy it and open the JWT validation extension again. Notice that now the tokens are signed with ES256 instead of RS256.
+*6.* Click on ID Token, copy it and open the JWT validation extension again. Notice that now the tokens are signed with ES256 instead of RS256.
 
 While you're looking at the ID Token take a note of the kid, try to remember the first few characters. The kid refers to the keypair used to sign the token.
 
-<1> Go back to the Red Hat SSO Admin Console. 
+*1.* Go back to the Red Hat SSO Admin Console. 
 
-<2> Go to Realm Settings then Keys. What we're going to do now is introduce a new set of active keys and mark the previous keys as no longer the active keys.
+*2.* Go to Realm Settings then Keys. What we're going to do now is introduce a new set of active keys and mark the previous keys as no longer the active keys.
 
-<3> Click on Providers. 
+*3.* Click on Providers. 
 
 image::sso_adminkeyselect.png[Events]
 
-<4> From the drop-down select ecdsa-generated. 
+*4.* From the drop-down select ecdsa-generated. 
 
-<5> Set the priority to 200 and click Save. As the priority is higher than the current active keys the new keys will be used next time tokens are signed.
+*5.* Set the priority to 200 and click Save. As the priority is higher than the current active keys the new keys will be used next time tokens are signed.
 
 image::sso_adminkeysescda.png[escda]
 
@@ -79,26 +79,26 @@ Go back to the JS Console and click Refresh. Notice how you are now longer authe
 
 Not only can admins log out users, but users themselves can logout other sessions from the account management console.
 You can go to the following link to access your account.
-<SERVER_URL>/auth/realms/demojs/account
+*SERVER_URL*/auth/realms/demojs/account
 
 [#events]
 == Events
 Events are the system wide events, you can see each event regarding the events, e.g. is someone tried to login with wrong credentials and alot more. These details are important e.g. auditing or compliance usecases as well. 
 
-<1> Open the Red Hat SSO Admin Console. 
+*1.* Open the Red Hat SSO Admin Console. 
 
-<2> Click on Events and Config. 
+*2.* Click on Events and Config. 
 
-<3> Turn on Save Events and click Save.
+*3.* Turn on Save Events and click Save.
 
 image::sso_adminevents.png[Events]
 
 
-<4> Go back to the JS Console and click Refresh. 
+*4.* Go back to the JS Console and click Refresh. 
 
-<5> Logout. 
+*5.* Logout. 
 
-<6> Then when you log in use the wrong password, then login with the correct password.
+*6.* Then when you log in use the wrong password, then login with the correct password.
 
 Go back to the Events in the Red Hat SSO Admin Console and notice how there are now a list of events.
 
@@ -118,7 +118,7 @@ We already have created some custom code for you to make use of.
 - Themes is also a custom theme for the system. 
 
 Lets build the two projects. Goto your code ready terminal and navigate to these projects. 
-Ensure you are in the root directory e.g. sso-kubernetes-tutorial. 
+Ensure you are in the root directory e.g. sso-kubernetes-workshop. 
 
 [source,bash,subs="+macros,+attributes"]
 ----
@@ -144,7 +144,7 @@ Remember to `replace evalsXX with your username` and also ensure you are in the 
 ----
 
 # Create a new project
-oc new-project <evalsXX>-sso-custom-kubernetes-tutorial
+oc new-project <evalsXX>-sso-custom-kubernetes-workshop
 
 # Create a build directive with Red Hat SSO official image stream.
 oc new-build --name custom-sso73-openshift --binary --strategy source --image-stream redhat-sso73-openshift:1.0
@@ -188,7 +188,7 @@ Change the following line "auth-server-url" with your SERVER_URL
 ----
 {
   "realm" : "demojs",
-  "auth-server-url" : "<SERVER_URL>/auth",
+  "auth-server-url" : "SERVER_URL/auth",
   "resource" : "js-console"
 }
 
@@ -199,7 +199,7 @@ And replace the SERVER_URL in the <header> <src>
 For example:
 ```
 
-    <script src="https://sso-tutorial.apps.cph-c747.open.redhat.com/auth/js/keycloak.js"></script>
+    <script src="https://sso-workshop.apps.cph-c747.open.redhat.com/auth/js/keycloak.js"></script>
 
 ```
 
@@ -248,12 +248,12 @@ To get the route to your js-console you can run the following command.
 oc get route js-console
 ----
 
-<1> We have used Master realm in this example, feel free create your own realm. 
+*1.* We have used Master realm in this example, feel free create your own realm. 
 Make sure that you have configured email as described in the earlier section on SSO Config. This needs to be done to get email for the magic link.
 
-<2> Also create a test user account for the realm.
+*2.* Also create a test user account for the realm.
 
-<3> Also fill in the details on the form (e.g. in below screenshot) and press save. Ensure you use protocol with your route e.g. 'http://js-console-evals01-custom-sso-kubernetes-tutorial.apps.cph-5a34.open.redhat.com'(An example shown in the following screenshot)
+*3.* Also fill in the details on the form (e.g. in below screenshot) and press save. Ensure you use protocol with your route e.g. 'http://js-console-evals01-custom-sso-kubernetes-workshop.apps.cph-5a34.open.redhat.com'(An example shown in the following screenshot)
 
 image::sso_adminclientconfig.png[Realm Client settings]
 
@@ -264,26 +264,26 @@ Its quite commmon that users of Red Hat SSO would need to change the default flo
 
 The source code for the magic-link is placed in the `magic-link/src`, do take a look at the `MagicLinkFromAuthenticator.java` to see how we create the magic link. The API is quite straight forward. 
 
-<1> To enable this open the Red Hat SSO Admin Console. Click on Authentication.
+*1.* To enable this open the Red Hat SSO Admin Console. Click on Authentication.
 
-<2> Click on Copy to create a new flow based on the browser flow. 
+*2.* Click on Copy to create a new flow based on the browser flow. 
 
-<3> Use the name `browser-email`. now select browser-email from the drop down list
+*3.* Use the name `browser-email`. now select browser-email from the drop down list
 
-<4> Click on Actions and Delete for Username Password Form and OTP Form.
+*4.* Click on Actions and Delete for Username Password Form and OTP Form.
 
 image::sso_adminauthethicationdelete.png[Delete Actions]
 
 
-<5> Then click on Add execution. 
+*5.* Then click on Add execution. 
 
-<6> Select Magic Link from the list. 
+*6.* Select Magic Link from the list. 
 
-<7> Once it's saved select Required for the Magic Link.
+*7.* Once it's saved select Required for the Magic Link.
 
-<8> Now to use this new flow when users login select Bindings and select browser-email for the Browser flow.
+*8.* Now to use this new flow when users login select Bindings and select browser-email for the Browser flow.
 
-<9> Open the JS Console and click Logout. For the email enter your email address and click Log In. Open your email and you should have a mail with a link which will authenticate you and bring you to the JS Console.
+*9.* Open the JS Console and click Logout. For the email enter your email address and click Log In. Open your email and you should have a mail with a link which will authenticate you and bring you to the JS Console.
 
 You should see the following screen, once you reload JS Console.
 
@@ -292,26 +292,26 @@ image::sso_adminmagiclink.png[Magic Link]
 
 Congratulations! you have successfully done the following
 
-<1> Created a new Red Hat SSO image with custom code in it. 
+*1.* Created a new Red Hat SSO image with custom code in it. 
 
-<2> You have deployed a custom flow, that is different from the normal login flow
+*2.* You have deployed a custom flow, that is different from the normal login flow
 
-<3> Lastly you have learnt how to create your own realm and configure your client for it. 
+*3.* Lastly you have learnt how to create your own realm and configure your client for it. 
 
 [#configure-otp]
 == Configuring OTP
 
 -- ADD OTP details and screenshot
 
-<1> Now let's add OTP to the mix. 
+*1.* Now let's add OTP to the mix. 
 
-<2> Open the Red Hat SSO Admin Console. 
+*2.* Open the Red Hat SSO Admin Console. 
 
-<3> Go back to the Browser-email flow. 
+*3.* Go back to the Browser-email flow. 
 
-<4> Click Actions and Add execution. 
+*4.* Click Actions and Add execution. 
 
-<5> Select OTP Form. Then mark it as Required.
+*5.* Select OTP Form. Then mark it as Required.
 
 Open the JS Console and click Logout. Login again. After you've done the email based login you will be prompted to configure OTP. You'll need Google Authenticator or FreeOTP on your phone to try this out.
 

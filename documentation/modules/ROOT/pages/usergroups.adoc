@@ -8,7 +8,7 @@ Roles can be added realm-wide or to specific applications. There is also support
 Groups have a parent/child relationship where a child inherits from its parent. Groups can be mapped to roles, have attributes or just added directly to the token for your application to resolve its meaning.
 
 [#create-role]
-=== Create role
+== Create role
 
 Let's start by creating a role and see it in the token.
 
@@ -44,21 +44,21 @@ Refresh your js-console and notice that there is a `realm_access` claim in the t
 
 Next let's create a Group. 
 
-<1> Go back to the Red Hat SSO Admin Console. 
+*1.* Go back to the Red Hat SSO Admin Console. 
 
-<2> Click on New and use mygroup as the Name. 
+*2.* Click on New and use mygroup as the Name. 
 
-<3> Click on Attributes and add key `user_type` with value consumers.
+*3.* Click on Attributes and add key `user_type` with value consumers.
 
 Now let's make sure this group and the claim is added to the token. 
 
-<1> Go to Client Scopes and click Create. 
+*1.* Go to Client Scopes and click Create. 
 
-<2> For the name use `myscope`
+*2.* For the name use `myscope`
 
-<3> Click on Mappers. 
+*3.* Click on Mappers. 
 
-<4> Click on Create.
+*4.* Click on Create.
 
 - Fill in the following values:
 
@@ -76,15 +76,15 @@ Now let's make sure this group and the claim is added to the token.
     Token Claim Name: `user_type`
     Claim JSON Type: `String`
 
-<1> Find the js-console client again and add the myclaim as a default client scope.
+*1.* Find the js-console client again and add the myclaim as a default client scope.
 
-<2> Finally add a user to this group, by going to the `Users`; 
+*2.* Finally add a user to this group, by going to the `Users`; 
 
-<3> Find your user and add group to it. 
+*3.* Find your user and add group to it. 
 
-<4> When you login to the JS Console you will be able to see the claim.
+*4.* When you login to the JS Console you will be able to see the claim.
 
-<5> Go back to the JS Console and click Refresh, then Access Token JSON. Notice that there is a groups claim in the token as well as a user_type claim.
+*5.* Go back to the JS Console and click Refresh, then Access Token JSON. Notice that there is a groups claim in the token as well as a user_type claim.
 
 [source, json]
 ----

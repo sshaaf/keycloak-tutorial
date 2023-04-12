@@ -4,7 +4,7 @@ Now that we have the server installed, lets make a few basic configuration chang
 In this section we will view some of the current configuration and also add smtp config and email addresses so that our SSO server can communicate with the end users. We will then test our flow with Email verification and user registrations. 
 
 [#what-is-realm]
-=== What is a Realm 
+== What is a Realm 
 A realm is the logical namespace for all configurations, options, for a given group or applications or services. A realm secures and manages security metadata for a set of users, applications, and registered identity brokers, clients etc. Users can be created within a specific realm within the Administration console. Roles (permission types) can be defined at the realm level and you can also set up user role mappings to assign these permissions to specific users. A user belongs to and logs into a realm. Realms are isolated from one another and can only manage and authenticate the users that they control.
 
 For this example we will configure our demo realm which needs to be created.
@@ -35,9 +35,9 @@ oc new-app quay.io/sshaaf/mailcatcher --name=mailcatcher
 oc expose svc/mailcatcher --port 8080
 ----
 
-<1> the first command will initiate the mailcatcher server
+*1.* the first command will initiate the mailcatcher server
 
-<2> the second ones exposes the port 8080 to ensure we have the http end point setup for viewing the emails recieved. 
+*2.* the second ones exposes the port 8080 to ensure we have the http end point setup for viewing the emails recieved. 
 
 Once the installation is done you should see it as follows. 
 
@@ -61,8 +61,8 @@ Press the email Tab, and lets configure it.
 
 image::sso_adminemailconfig.png[Realm Email config]
 
-<1> Further more ensure that Enable SSL, Enable StartTLS and Enable Authentication are selected.
-<2> Also ensure that you have filled in the `From Display Name`, its not mandatory, but for this tutorial if users are sharing emails, it will help alot.
+*1.* Further more ensure that Enable SSL, Enable StartTLS and Enable Authentication are selected.
+*2.* Also ensure that you have filled in the `From Display Name`, its not mandatory, but for this tutorial if users are sharing emails, it will help alot.
 
 Once done making changes `save`. 
 
@@ -94,11 +94,11 @@ Open a new browser session in privacy mode, or open another browser.
   * Ensure that you are not logged into the SSO admin panel in the newly opened browser sessions. 
 
 
-<1> It should show a login screen, with a link under the buttons to register. 
+*1.* It should show a login screen, with a link under the buttons to register. 
 
-<2> Hit the register button and register a new user. 
+*2.* Hit the register button and register a new user. 
 
-<3> Ensure that you fill in the right email address, since an email will be sent to verify the newly created user. ensure that this email address is not the same as used previously in this excercise.
+*3.* Ensure that you fill in the right email address, since an email will be sent to verify the newly created user. ensure that this email address is not the same as used previously in this excercise.
 
 Once you have registered you should see the following message:
 
