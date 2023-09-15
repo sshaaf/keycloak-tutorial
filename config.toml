@@ -20,7 +20,7 @@ home = [ "HTML", "RSS", "JSON"]
   DateForm = "Mon, Jan 2, 2006"
   Description = "A hands-on introduction to keycloak"
   Author = "Shaaf, Syed"
-  Ganalytics = "XX-00000000-0"
+  Ganalytics = "UA-58961685-1"
   themeVariant = "blue"
   disableInlineCopyToClipBoard = "false"
 
