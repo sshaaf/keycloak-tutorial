@@ -5,6 +5,7 @@ publishdir    = "public"
 title = "Keycloak tutorial"
 canonifyurls = true
 paginate = 10
+googleAnalytics = "G-72FCXF4TY5"
 
 # Change the default theme to be use when building the site with Hugo
 theme = "hugo-theme-learn"
@@ -14,13 +15,12 @@ theme = "hugo-theme-learn"
 home = [ "HTML", "RSS", "JSON"]
 
 [author]
-  name = "Shaaf, Syed"
+  name = "Syed M Shaaf"
 
 [params]
   DateForm = "Mon, Jan 2, 2006"
   Description = "A hands-on introduction to keycloak"
-  Author = "Shaaf, Syed"
-  Ganalytics = "UA-58961685-1"
+  Author = "Syed M Shaaf"
   themeVariant = "blue"
   disableInlineCopyToClipBoard = "false"
 
